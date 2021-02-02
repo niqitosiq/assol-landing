@@ -1,49 +1,140 @@
 <script>
   import Icon from '../ui/Icon.svelte';
-  import Link from '../ui/Link.svelte';
+
+  const phone = '8 (903) 375-86-02';
 </script>
 
 <header>
-  <div class="top">
-    <Link class="logo" href="/">
+  <div class="top container">
+    <a class="logo" href="/">
       <Icon name="logo" />
       <span>
         Фабрика стильной
         <br />
         мебели «Assoll’»
       </span>
-    </Link>
-    <Link class="map" href="/#">
+    </a>
+
+    <a class="map" href="/#">
       <img class="map-icon" src="/img/map-small.jpg" alt="" />
       <div class="city">
         <span class="city-name"> г. Волгоград </span>
         <span class="city-location"> Краснополянская 32а </span>
       </div>
-    </Link>
+    </a>
 
     <div class="social">
       <span> Мы в соц. сетях: </span>
       <div class="social-icons">
-        <Link class="icon instagram" href="#">
+        <a href="#">
           <img src="/icons/instagram.svg" alt="" />
-        </Link>
-        <Link class="icon viber" href="#">
+        </a>
+        <a href="#">
           <Icon name="viber" />
-        </Link>
-        <Link class="icon whatsapp" href="#">
+        </a>
+        <a href="#">
           <Icon name="whatsapp" />
-        </Link>
+        </a>
       </div>
     </div>
-  </div>
 
-  <div class="phone" />
+    <a class="phone" href="tel:{phone}">
+      <div class="phone-icon">
+        <Icon name="phone" />
+      </div>
+      <span> {phone} </span>
+    </a>
+  </div>
 </header>
 
 <style lang="scss">
+  .top {
+    display: flex;
+    justify-content: space-between;
+  }
   .social {
     img {
       width: 21px;
+    }
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    :global(svg) {
+      font-size: 94px;
+      fill: var(--accent);
+    }
+    span {
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 100%;
+      margin-left: 15px;
+      display: block;
+    }
+  }
+
+  .map {
+    display: flex;
+    align-items: center;
+    img {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+    }
+    span {
+      display: block;
+      margin-left: 15px;
+    }
+  }
+
+  .city {
+    &-name {
+      font-weight: 700;
+    }
+  }
+
+  .social {
+    display: flex;
+    align-items: center;
+    &-icons {
+      display: flex;
+      a {
+        height: 22px;
+        margin-left: 15px;
+      }
+      img {
+        width: 22px;
+      }
+      :global(svg) {
+        font-size: 22px;
+      }
+    }
+    @media screen and (max-width: 940px) {
+      display: none;
+    }
+  }
+
+  .phone {
+    display: flex;
+    align-items: center;
+    &-icon {
+      width: 40px;
+      height: 40px;
+      border: solid 1px rgba(0, 0, 0, 0.1);
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    span {
+      font-size: 21px;
+      color: #292929;
+      text-decoration: underline;
+      font-weight: 700;
+      margin-left: 15px;
+      @media screen and (max-width: 1100px) {
+        font-size: 18px;
+      }
     }
   }
 </style>

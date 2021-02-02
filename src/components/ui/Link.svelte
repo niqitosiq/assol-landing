@@ -3,6 +3,7 @@
 
   export let href;
   export let label;
+  export let ref = null;
 
   const redirect = event => {
     event.preventDefault();
@@ -11,7 +12,7 @@
   };
 </script>
 
-<a {href} on:click={redirect} {...$$props}>
+<a bind:this={ref} {href} {...$$restProps} on:click={redirect}>
   <slot>{label}</slot>
 </a>
 

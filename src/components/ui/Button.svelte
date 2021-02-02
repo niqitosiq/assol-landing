@@ -9,27 +9,49 @@
   const emitEvent = (type, event) => {
     dispatch(type, event);
   };
-  dispatch('click');
 </script>
 
-<style lang="scss" global>
+<button {type} class={styling} on:click={emitEvent}>
+  <span>
+    <slot />
+  </span>
+</button>
+
+<style lang="scss">
   button {
     position: relative;
     border: none;
-    padding: 11px 34px;
+    padding: 24px 24px;
     font-weight: bold;
     font-size: 14px;
     line-height: 17px;
     border-radius: 30px;
-    color: var(--white);
-    background: var(--background-gray);
-    border: 1px solid var(--white);
+    border: none;
+    background-color: transparent;
     span {
+      display: block;
       position: relative;
       z-index: 5;
+      color: var(--white);
+      font-weight: 700;
+      transition: transform ease 0.3s;
+      transform: translateY(-5px);
     }
     &:focus {
       outline: 0;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 75px;
+      transition: transform ease 0.3s;
+      transform: translateY(-5px);
+      z-index: 1;
+      background: var(--gradient);
     }
     &:before {
       content: '';
@@ -38,46 +60,17 @@
       height: 100%;
       left: 0;
       top: 0;
-      border-radius: 30px;
-      transition: opacity ease 0.3s;
-      opacity: 0;
+      border-radius: 75px;
+      transition: transform ease 0.3s;
       z-index: 1;
-      background-color: var(--background-gray-light);
-    }
-    &.accent {
-      background: var(--accent);
-      border: 1px solid var(--accent);
-      &:before {
-        background-color: var(--accent-light);
-      }
-      &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        border-radius: 30px;
-        transition: opacity ease 0.3s;
-        opacity: 1;
-        box-shadow: 0px 0px 20px rgba(0, 124, 237, 0.3);
-        z-index: 1;
-      }
+      background: #b32c2c;
     }
 
     &:hover {
-      &:after {
-        opacity: 0;
-      }
-      &:before {
-        opacity: 1;
+      &:after,
+      span {
+        transform: translateY(0);
       }
     }
   }
 </style>
-
-<button {type} class={styling} on:click={emitEvent}>
-  <span>
-    <slot />
-  </span>
-</button>

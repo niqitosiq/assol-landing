@@ -37,6 +37,8 @@
   --text-dark: #292929;
   --text-gray: #575757
   --text-dark-transparent: rgba(41,41,41,0.5);
+
+  --container-width: 1246px;
 }
 
 * {
@@ -49,14 +51,19 @@ body {
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
   color: var(--text-gray);
-  font-weight: 700;
+  font-weight: 300;
   font-size: 14px;
 
   width: 100%;
   overflow-x: hidden;
 }
 
+b {
+  font-weight: 700;
+}
+
 .container {
+  margin: 0 auto;
   width: calc(100% - 20px);
   max-width: var(--container-width);
 }

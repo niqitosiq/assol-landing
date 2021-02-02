@@ -10,10 +10,11 @@ import { string } from 'rollup-plugin-string';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import sveltePreprocess from 'svelte-preprocess';
+import seqPreprocessor from 'svelte-sequential-preprocessor';
 import svgicons from 'rollup-plugin-svg-icons';
 import image from 'svelte-image';
 
-const preprocess = [
+const preprocess = seqPreprocessor([
   sveltePreprocess({
     postcss: true,
     sass: true,
@@ -24,7 +25,7 @@ const preprocess = [
     publicDir: './static/',
     outputDir: 'g/',
   }),
-];
+]);
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
