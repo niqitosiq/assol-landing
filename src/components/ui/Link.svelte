@@ -11,7 +11,7 @@
   };
 </script>
 
-<a {href} on:click={redirect}>
+<a {href} on:click={redirect} {...$$props}>
   <slot>{label}</slot>
 </a>
 

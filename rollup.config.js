@@ -13,11 +13,18 @@ import sveltePreprocess from 'svelte-preprocess';
 import svgicons from 'rollup-plugin-svg-icons';
 import image from 'svelte-image';
 
-const preprocess = sveltePreprocess({
-  postcss: true,
-  sass: true,
-  ...image(),
-});
+const preprocess = [
+  sveltePreprocess({
+    postcss: true,
+    sass: true,
+  }),
+  image({
+    optimizeAll: true,
+    inlineBelow: 50000000,
+    publicDir: './static/',
+    outputDir: 'g/',
+  }),
+];
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -52,6 +59,12 @@ export default {
       svgicons({
         inputFolder: 'src/icons',
         output: 'static/bundle.svg',
+        cleanDefs: false,
+        cleanSymbols: false,
+        svgAttrs: true,
+        symbolAttrs: false,
+        copyAttrs: true,
+        renameDefs: false,
       }),
 
       url({

@@ -2,6 +2,10 @@
   export let name;
 </script>
 
+<svg class="inline-svg-icon">
+  <use xlink:href={`bundle.svg#${name}`} />
+</svg>
+
 <style global>
   .inline-svg-icon {
     font-size: 16px;
@@ -12,7 +16,3 @@
     vertical-align: middle;
   }
 </style>
-
-<svg class="inline-svg-icon">
-  <use xlink:href={`bundle.svg#${name}`} />
-</svg>
