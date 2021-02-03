@@ -1,5 +1,6 @@
 <script>
   import Icon from '../ui/Icon.svelte';
+  import Menu from './Menu.svelte';
 
   const phone = '8 (903) 375-86-02';
 </script>
@@ -26,13 +27,13 @@
     <div class="social">
       <span> Мы в соц. сетях: </span>
       <div class="social-icons">
-        <a href="#">
+        <a href="/#">
           <img src="/icons/instagram.svg" alt="" />
         </a>
-        <a href="#">
+        <a href="/#">
           <Icon name="viber" />
         </a>
-        <a href="#">
+        <a href="/#">
           <Icon name="whatsapp" />
         </a>
       </div>
@@ -44,6 +45,9 @@
       </div>
       <span> {phone} </span>
     </a>
+  </div>
+  <div class="menu container">
+    <Menu />
   </div>
 </header>
 
@@ -136,5 +140,10 @@
         font-size: 18px;
       }
     }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
   }
 </style>
