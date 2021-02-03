@@ -1,4 +1,6 @@
-@import '../../node_modules/normalize.scss/normalize.scss';
+@import 'normalize.scss/normalize.scss';
+@import 'swiper/components/effect-fade/effect-fade.scss';
+@import 'swiper/swiper.scss';
 @import './fonts';
 
 @include font-face(
@@ -93,10 +95,11 @@ span {
 
 h1 {
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 48px;
   line-height: 59px;
-  color: #f5f5f5;
+  line-height: 110%;
+  color: var(--text-gray);
   margin: 0;
   @media screen and (max-width: 600px) {
     font-size: 38px;

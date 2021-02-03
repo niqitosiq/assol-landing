@@ -1,6 +1,13 @@
+<script>
+  import Main from '../components/blocks/main/Main.svelte';
+</script>
+
 <div class="index">
-  <p>Тут будет асоль</p>
+  <Main />
 </div>
 
 <style lang="scss">
+  .index {
+    margin-top: 60px;
+  }
 </style>

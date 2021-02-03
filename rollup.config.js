@@ -24,6 +24,8 @@ const preprocess = seqPreprocessor([
     inlineBelow: 50000000,
     publicDir: './static/',
     outputDir: 'g/',
+    placeholder: 'blur',
+    processFolders: ['img', 'img/slider'],
   }),
 ]);
 
@@ -31,11 +33,16 @@ const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const onwarn = (warning, onwarn) =>
-  (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
-  (warning.code === 'CIRCULAR_DEPENDENCY' &&
-    /[/\\]@sapper[/\\]/.test(warning.message)) ||
-  onwarn(warning);
+const onwarn = (warning, onwarn) => {
+  if (warning.message.includes('swiper')) return;
+
+  return (
+    (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
+    (warning.code === 'CIRCULAR_DEPENDENCY' &&
+      /[/\\]@sapper[/\\]/.test(warning.message)) ||
+    onwarn(warning)
+  );
+};
 
 export default {
   client: {

@@ -21,6 +21,7 @@
   button {
     position: relative;
     border: none;
+    width: 100%;
     padding: 24px 24px;
     font-weight: bold;
     font-size: 14px;

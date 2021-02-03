@@ -1,6 +1,7 @@
 <script>
   import Icon from '../ui/Icon.svelte';
   import Menu from './Menu.svelte';
+  import Image from 'svelte-image';
 
   const phone = '8 (903) 375-86-02';
 </script>
@@ -17,7 +18,9 @@
     </a>
 
     <a class="map" href="/#">
-      <img class="map-icon" src="/img/map-small.jpg" alt="" />
+      <div class="map-icon">
+        <Image src="/img/map-small.jpg" alt="" />
+      </div>
       <div class="city">
         <span class="city-name"> г. Волгоград </span>
         <span class="city-location"> Краснополянская 32а </span>
@@ -80,7 +83,7 @@
   .map {
     display: flex;
     align-items: center;
-    img {
+    &-icon {
       flex-shrink: 0;
       width: 40px;
       height: 40px;
