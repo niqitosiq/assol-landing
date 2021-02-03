@@ -2,11 +2,13 @@
   import { onMount } from 'svelte';
 
   import { Swiper, SwiperSlide } from 'swiper/svelte';
-  import SwiperCore, { EffectFade } from 'swiper';
+  import SwiperCore, { EffectFade, Pagination, Navigation } from 'swiper';
 
-  SwiperCore.use([EffectFade]);
+  SwiperCore.use([EffectFade, Pagination, Navigation]);
 
   import Div from '../../utils/Div.svelte';
+  import Button from '../../ui/Button.svelte';
+  import Icon from '../../ui/Icon.svelte';
 
   let swiper = {
     container: Div,
@@ -23,6 +25,7 @@
 
   let slides = [
     {
+      name: 'Кухня из древесного бруса',
       img: '/g/img/slider/1.png',
       points: [
         {
@@ -48,6 +51,7 @@
       ],
     },
     {
+      name: 'Кухня из древесного бруса2',
       img: '/g/img/slider/1.png',
       points: [
         {
@@ -73,6 +77,33 @@
       ],
     },
     {
+      name: 'Кухня из древесного бруса3',
+      img: '/g/img/slider/1.png',
+      points: [
+        {
+          x: 15,
+          y: 23,
+          text: 'Белый брус создает уникальную обстановку на кухне',
+        },
+        {
+          x: 55,
+          y: 43,
+          text: 'Белый брус создает уникальную обстановку на кухне',
+        },
+        {
+          x: 65,
+          y: 13,
+          text: 'Белый брус создает уникальную обстановку на кухне',
+        },
+        {
+          x: 95,
+          y: 53,
+          text: 'Белый брус создает уникальную обстановку на кухне',
+        },
+      ],
+    },
+    {
+      name: 'Кухня из древесного бруса3',
       img: '/g/img/slider/1.png',
       points: [
         {
@@ -99,9 +130,35 @@
     },
   ];
 
+  const slidesCount = slides.length;
+
   const getPointStyle = (x, y) => {
     return `top: ${y}%; left: ${x}%;`;
   };
+
+  const paginationStyle = {
+    el: '.main .slider .pagination-bullets',
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '"></span>';
+    },
+  };
+
+  let swiperIntance = {};
+  let activeIndex = 0;
+
+  const slideChanged = () => {
+    activeIndex = swiperIntance.realIndex || 0;
+  };
+
+  const navigation = {
+    nextEl: '.main .slider .button.next',
+    prevEl: '.main .slider .button.prev',
+  };
+
+  let activeSlide = slides[0];
+
+  $: activeSlide = slides[activeIndex];
 </script>
 
 <div class="slider" class:client>
@@ -110,8 +167,13 @@
     spaceBetween={0}
     slidesPerView={1}
     effect="fade"
-    on:slideChange={() => console.log('slide change')}
-    on:swiper={e => console.log(e.detail[0])}
+    pagination={paginationStyle}
+    loop={true}
+    {navigation}
+    on:slideChange={slideChanged}
+    on:swiper={e => {
+      swiperIntance = e.detail[0];
+    }}
   >
     {#each slides as { img, points }}
       <svelte:component this={swiper.slide}>
@@ -131,6 +193,28 @@
       </svelte:component>
     {/each}
   </svelte:component>
+
+  <div class="pagination">
+    <div class="current">
+      <div class="current-number">
+        {activeIndex + 1}/{slidesCount}
+      </div>
+      <div class="current-name">{activeSlide.name}</div>
+    </div>
+    <div class="navigation">
+      <div class="button prev">
+        <Button>
+          <Icon name="arrow" />
+        </Button>
+      </div>
+      <div class="pagination-bullets" />
+      <div class="button next">
+        <Button>
+          <Icon name="arrow" />
+        </Button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style lang="scss">
@@ -138,11 +222,18 @@
     height: 514px;
     max-width: 613px;
     width: 100%;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity ease 0.3s;
     :global(.swiper-container) {
       overflow: visible;
     }
     :global(.swiper-slide-active .point) {
       transform: scale(1);
+      opacity: 1;
+    }
+    &.client {
+      overflow: visible;
       opacity: 1;
     }
   }
@@ -255,6 +346,65 @@
     }
     &:nth-child(9) {
       transition-delay: 900ms;
+    }
+  }
+  .pagination {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    :global(svg) {
+      fill: #fff;
+    }
+    .button {
+      width: 67px;
+      height: 67px;
+      &.next {
+        :global(svg) {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .navigation {
+      display: flex;
+      align-items: center;
+    }
+    &-bullets {
+      margin: 0 36px;
+      :global(.swiper-pagination-bullet) {
+        margin-right: 24px;
+        background-color: #d8d8d8;
+        width: 6px;
+        height: 6px;
+        transition: transform ease 0.3s, background-color ease 0.3s;
+        transform: scale(1);
+        opacity: 1;
+        &:last-child {
+          margin-right: 0;
+        }
+        &.swiper-pagination-bullet-active {
+          background-color: #ed4852;
+          opacity: 1;
+          transform: scale(2);
+        }
+      }
+    }
+  }
+
+  .current {
+    display: flex;
+    margin-bottom: 18px;
+    &-number {
+      color: #000000;
+      font-size: 22px;
+      opacity: 0.4;
+      line-height: 34px;
+    }
+    &-name {
+      font-size: 20px;
+      line-height: 160%;
+      color: #000000;
+      margin-left: 20px;
     }
   }
 </style>
