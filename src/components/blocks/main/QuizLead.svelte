@@ -28,6 +28,11 @@
     :global(button) {
       text-transform: uppercase;
     }
+    @media screen and (max-width: 1080px) {
+      flex-direction: column;
+      padding-right: 30px;
+      padding-bottom: 80px;
+    }
   }
   .image {
     width: 207px;
@@ -36,6 +41,12 @@
     right: 80px;
     top: 50%;
     transform: translate(100%, -50%);
+
+    @media screen and (max-width: 1080px) {
+      top: 100%;
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
   }
   h3 {
     font-weight: 700;

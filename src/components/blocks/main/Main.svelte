@@ -19,7 +19,7 @@
       .to(
         '.decor-1',
         {
-          y: 300,
+          y: 200,
           duration: 6,
           pin: true,
         },
@@ -65,19 +65,26 @@
     <QuizLead />
   </div>
   <Slider />
-</div>
-
-<div class="decor-1">
-  <Image src="/img/background/1.png" />
-</div>
-<div class="decor-2">
-  <Image src="/img/background/2.png" />
+  <div class="decor-1">
+    <Image src="/img/background/1.png" />
+  </div>
+  <div class="decor-2">
+    <Image src="/img/background/2.png" />
+  </div>
 </div>
 
 <style lang="scss">
   .main {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+
+    @media screen and (max-width: 1080px) {
+      flex-direction: column;
+      align-items: center;
+      padding-top: 100px;
+    }
   }
   p {
     margin-top: 30px;
@@ -90,13 +97,26 @@
     width: 160px;
     height: 160px;
     position: absolute;
+    z-index: 15;
     left: calc(50% + var(--container-width) / 2);
-    top: 0px;
+    top: -100px;
+    @media screen and (max-width: 1660px) {
+      left: auto;
+      right: 0px;
+    }
+    @media screen and (max-width: 1080px) {
+      top: 0px;
+    }
   }
   .decor-2 {
     width: 220px;
     position: absolute;
     left: calc(45% - var(--container-width) / 2);
-    bottom: 0px;
+    bottom: -200px;
+    z-index: 15;
+    @media screen and (max-width: 1660px) {
+      right: auto;
+      left: 0px;
+    }
   }
 </style>

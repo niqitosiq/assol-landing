@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from 'svelte';
+
   import Header from '../components/header/Header.svelte';
   import { gsap } from 'gsap';
   import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -6,9 +8,14 @@
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
+  let loaded = false;
+
+  onMount(() => {
+    loaded = true;
+  });
 </script>
 
-<main class="main">
+<main class="main" class:loaded style="opacity: 0;">
   <Header />
   <div class="main-wrapper">
     <slot />
@@ -22,6 +29,10 @@
     overflow-x: hidden;
   }
 
-  .main-wrapper {
+  main {
+    transition: opacity ease 0.3s;
+    &.loaded {
+      opacity: 1 !important;
+    }
   }
 </style>

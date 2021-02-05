@@ -165,7 +165,7 @@
   <svelte:component
     this={swiper.container}
     spaceBetween={0}
-    slidesPerView={1}
+    slidesPerView="auto"
     effect="fade"
     pagination={paginationStyle}
     loop={true}
@@ -219,7 +219,7 @@
 
 <style lang="scss">
   .slider {
-    height: 514px;
+    height: 100%;
     max-width: 613px;
     width: 100%;
     overflow: hidden;
@@ -232,15 +232,25 @@
       transform: scale(1);
       opacity: 1;
     }
+    :global(.swiper-slide) {
+      width: auto !important;
+      max-width: 100%;
+    }
     &.client {
       overflow: visible;
       opacity: 1;
+    }
+    @media screen and (max-width: 1080px) {
+      margin-top: 30px;
     }
   }
   .slide {
     position: relative;
     width: 100%;
     height: 100%;
+    img {
+      width: 100%;
+    }
   }
   .point {
     position: absolute;

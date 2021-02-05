@@ -25,7 +25,11 @@ const preprocess = seqPreprocessor([
     publicDir: './static/',
     outputDir: 'g/',
     placeholder: 'blur',
-    processFolders: ['img', 'img/slider'],
+    sizes: [400, 800, 1200],
+    processFolders: ['img'],
+    processFoldersRecursively: true,
+    processFoldersSizes: false,
+    quality: 100,
   }),
 ]);
 
