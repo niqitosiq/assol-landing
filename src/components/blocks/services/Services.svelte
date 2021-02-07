@@ -1,7 +1,6 @@
 <script>
   import Header from '../../ui/Header.svelte';
   import Slider from './Slider.svelte';
-
   const header = {
     name: 'Услуги',
     header:
@@ -18,5 +17,6 @@
 
 <style lang="scss">
   .services {
+    position: relative;
   }
 </style>

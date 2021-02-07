@@ -8,39 +8,44 @@
   };
 </script>
 
-<div id="service" class="container">
-  <Header {...header} />
-  <div class="services">
-    <div class="service">
-      <div class="service-wrapper">
-        <div class="image">
-          <Image src="/g/img/service/1.jpg" />
-        </div>
-        <div class="description">
-          <h3>Упаковка</h3>
-          <p>Мы уже X-лет на рынке. Используя этот опыт</p>
-        </div>
-      </div>
-    </div>
-    <div class="service">
-      <div class="service-wrapper">
-        <div class="image">
-          <Image src="/g/img/service/2.jpg" />
-        </div>
-        <div class="description">
-          <h3>Упаковка</h3>
-          <p>Мы уже X-лет на рынке. Используя этот опыт</p>
+<div id="service">
+  <div class="cloud">
+    <Image src="/img/background/cloud.png" />
+  </div>
+  <div class="container">
+    <Header {...header} />
+    <div class="services">
+      <div class="service">
+        <div class="service-wrapper">
+          <div class="image">
+            <Image src="/g/img/service/1.jpg" />
+          </div>
+          <div class="description">
+            <h3>Упаковка</h3>
+            <p>Мы уже X-лет на рынке. Используя этот опыт</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="service">
-      <div class="service-wrapper">
-        <div class="image">
-          <Image src="/g/img/service/3.jpg" />
+      <div class="service">
+        <div class="service-wrapper">
+          <div class="image">
+            <Image src="/g/img/service/2.jpg" />
+          </div>
+          <div class="description">
+            <h3>Упаковка</h3>
+            <p>Мы уже X-лет на рынке. Используя этот опыт</p>
+          </div>
         </div>
-        <div class="description">
-          <h3>Упаковка</h3>
-          <p>Мы уже X-лет на рынке. Используя этот опыт</p>
+      </div>
+      <div class="service">
+        <div class="service-wrapper">
+          <div class="image">
+            <Image src="/g/img/service/3.jpg" />
+          </div>
+          <div class="description">
+            <h3>Упаковка</h3>
+            <p>Мы уже X-лет на рынке. Используя этот опыт</p>
+          </div>
         </div>
       </div>
     </div>
@@ -48,9 +53,18 @@
 </div>
 
 <style lang="scss">
+  .cloud {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100px;
+    left: 0;
+    z-index: -1;
+  }
   #service {
     margin-top: 130px;
     margin-bottom: 150px;
+    position: relative;
   }
   .services {
     display: flex;
