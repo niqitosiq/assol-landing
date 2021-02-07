@@ -1,26 +1,12 @@
 <script>
   import { onMount } from 'svelte';
 
-  import { Swiper, SwiperSlide } from 'swiper/svelte';
+  import { Swiper } from 'swiper';
 
-  import Div from '../../utils/Div.svelte';
   import Button from '../../ui/Button.svelte';
   import Icon from '../../ui/Icon.svelte';
 
   import Slide from './Slide.svelte';
-
-  let swiper = {
-    container: Div,
-    slide: Div,
-  };
-
-  let client = false;
-
-  onMount(() => {
-    swiper.container = Swiper;
-    swiper.slide = SwiperSlide;
-    client = true;
-  });
 
   const slides = [
     {
@@ -64,44 +50,39 @@
       },
     },
   ];
+  let client = false;
 
-  const getPointStyle = (x, y) => {
-    return `top: ${y}%; left: ${x}%;`;
-  };
-
-  const paginationStyle = {
-    el: '.services .slider .pagination-bullets',
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '"></span>';
-    },
-  };
-
-  let swiperIntance = {};
-
-  const navigation = {
-    nextEl: '.services .slider .button.next',
-    prevEl: '.services .slider .button.prev',
-  };
+  onMount(() => {
+    new Swiper('#services .swiper-container', {
+      spaceBetween: 100,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '#services .slider .button.next',
+        prevEl: '#services .slider .button.prev',
+      },
+      pagination: {
+        el: '#services .slider .pagination-bullets',
+        clickable: true,
+        renderBullet: function (index, className) {
+          console.log('hi');
+          return '<span class="' + className + '"></span>';
+        },
+      },
+    });
+    client = true;
+  });
 </script>
 
 <div class="slider container" class:client>
-  <svelte:component
-    this={swiper.container}
-    spaceBetween={100}
-    slidesPerView="1"
-    pagination={paginationStyle}
-    {navigation}
-    on:swiper={e => {
-      swiperIntance = e.detail[0];
-    }}
-  >
-    {#each slides as slide}
-      <svelte:component this={swiper.slide}>
-        <Slide {...slide} />
-      </svelte:component>
-    {/each}
-  </svelte:component>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {#each slides as slide}
+        <div class="swiper-slide">
+          <Slide {...slide} />
+        </div>
+      {/each}
+    </div>
+  </div>
 
   <div class="button prev">
     <Button>

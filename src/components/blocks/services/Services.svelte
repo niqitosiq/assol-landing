@@ -84,6 +84,7 @@
   .d1,
   .d2 {
     position: absolute;
+    pointer-events: none;
   }
   .d1 {
     width: 271px;

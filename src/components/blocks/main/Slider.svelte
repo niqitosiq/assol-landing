@@ -1,27 +1,10 @@
 <script>
   import { onMount } from 'svelte';
-
-  import { Swiper, SwiperSlide } from 'swiper/svelte';
-  import SwiperCore, { EffectFade, Pagination, Navigation } from 'swiper';
-
-  SwiperCore.use([EffectFade, Pagination, Navigation]);
-
-  import Div from '../../utils/Div.svelte';
+  import { Swiper } from 'swiper';
   import Button from '../../ui/Button.svelte';
   import Icon from '../../ui/Icon.svelte';
 
-  let swiper = {
-    container: Div,
-    slide: Div,
-  };
-
   let client = false;
-
-  onMount(() => {
-    swiper.container = Swiper;
-    swiper.slide = SwiperSlide;
-    client = true;
-  });
 
   let slides = [
     {
@@ -136,63 +119,65 @@
     return `top: ${y}%; left: ${x}%;`;
   };
 
-  const paginationStyle = {
-    el: '.main .slider .pagination-bullets',
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '"></span>';
-    },
-  };
-
   let swiperIntance = {};
   let activeIndex = 0;
+
+  let activeSlide = slides[0];
+
+  $: activeSlide = slides[activeIndex];
 
   const slideChanged = () => {
     activeIndex = swiperIntance.realIndex || 0;
   };
 
-  const navigation = {
-    nextEl: '.main .slider .button.next',
-    prevEl: '.main .slider .button.prev',
-  };
-
-  let activeSlide = slides[0];
-
-  $: activeSlide = slides[activeIndex];
+  onMount(() => {
+    swiperIntance = new Swiper('#main .swiper-container', {
+      spaceBetween: 0,
+      slidesPerView: 'auto',
+      effect: 'fade',
+      loop: true,
+      navigation: {
+        nextEl: '#main .slider .button.next',
+        prevEl: '#main .slider .button.prev',
+      },
+      pagination: {
+        el: '#main .slider .pagination-bullets',
+        clickable: true,
+        renderBullet: function (index, className) {
+          console.log('hi');
+          return '<span class="' + className + '"></span>';
+        },
+      },
+      on: {
+        slideChange: slideChanged,
+      },
+    });
+    client = true;
+  });
 </script>
 
 <div class="slider" class:client>
-  <svelte:component
-    this={swiper.container}
-    spaceBetween={0}
-    slidesPerView="auto"
-    effect="fade"
-    pagination={paginationStyle}
-    loop={true}
-    {navigation}
-    on:slideChange={slideChanged}
-    on:swiper={e => {
-      swiperIntance = e.detail[0];
-    }}
-  >
-    {#each slides as { img, points }}
-      <svelte:component this={swiper.slide}>
-        <div class="slide">
-          <img src={img} alt="" />
-          <div class="points">
-            {#each points as { x, y, text }}
-              <div class="point" style={getPointStyle(x, y)}>
-                <div class="point-circle" />
-                <div class="point-text">
-                  {text}
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {#each slides as { img, points }}
+        <div class="swiper-slide">
+          <div class="slide">
+            <img src={img} alt="" />
+            <div class="points">
+              {#each points as { x, y, text }}
+                <div class="point" style={getPointStyle(x, y)}>
+                  <div class="point-circle" />
+                  <div class="point-text">
+                    {text}
+                  </div>
                 </div>
-              </div>
-            {/each}
+              {/each}
+            </div>
           </div>
         </div>
-      </svelte:component>
-    {/each}
-  </svelte:component>
+      {/each}
+    </div>
+  </div>
 
   <div class="pagination">
     <div class="current">

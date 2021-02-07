@@ -19,7 +19,7 @@
 <style lang="scss">
   .quiz-lead {
     margin-top: 60px;
-    background: #f6f6f6;
+    background: #f4f4f4;
     display: flex;
     position: relative;
     padding: 30px;
