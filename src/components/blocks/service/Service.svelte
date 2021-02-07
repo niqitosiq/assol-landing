@@ -14,7 +14,7 @@
     <div class="service">
       <div class="service-wrapper">
         <div class="image">
-          <Image src="/g/img/services/1.jpg" />
+          <Image src="/g/img/service/1.jpg" />
         </div>
         <div class="description">
           <h3>Упаковка</h3>
@@ -25,7 +25,7 @@
     <div class="service">
       <div class="service-wrapper">
         <div class="image">
-          <Image src="/g/img/services/2.jpg" />
+          <Image src="/g/img/service/2.jpg" />
         </div>
         <div class="description">
           <h3>Упаковка</h3>
@@ -36,7 +36,7 @@
     <div class="service">
       <div class="service-wrapper">
         <div class="image">
-          <Image src="/g/img/services/3.jpg" />
+          <Image src="/g/img/service/3.jpg" />
         </div>
         <div class="description">
           <h3>Упаковка</h3>
@@ -75,7 +75,7 @@
       position: relative;
       align-items: center;
       z-index: 2;
-      transition: transform ease 0.7s;
+      transition: transform ease 0.3s;
       &:after {
         content: '';
         box-sizing: border-box;
@@ -104,7 +104,7 @@
       box-shadow: 0px 5.58354px 19.5424px rgba(0, 0, 0, 0.05);
       left: 0;
       top: 0;
-      transition: transform ease 0.7s;
+      transition: transform ease 0.3s;
       transform: translateY(0px);
     }
     &:before {
@@ -112,7 +112,7 @@
       top: 5px;
       left: 5px;
       width: calc(100% - 10px);
-      transition: transform ease 1s;
+      transition: transform ease 0.3s;
       transform: translateY(0px);
       transform-origin: center bottom;
     }

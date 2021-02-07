@@ -100,6 +100,7 @@
     z-index: 15;
     left: calc(50% + var(--container-width) / 2);
     top: -100px;
+    pointer-events: none;
     @media screen and (max-width: 1660px) {
       left: auto;
       right: 0px;
@@ -114,6 +115,7 @@
     left: calc(45% - var(--container-width) / 2);
     bottom: -200px;
     z-index: 15;
+    pointer-events: none;
     @media screen and (max-width: 1660px) {
       right: auto;
       left: 0px;

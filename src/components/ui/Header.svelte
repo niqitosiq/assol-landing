@@ -23,6 +23,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     span {
       font-size: 15px;
@@ -39,14 +40,16 @@
       color: #333333;
       margin-top: 5px;
       font-weight: 700;
+      max-width: 730px;
     }
     p {
       font-size: 16px;
       line-height: 19px;
       text-align: center;
       color: #292929;
-      margin-top: 50px;
+      margin-top: 30px;
       opacity: 0.7;
+      max-width: 403px;
     }
   }
 </style>
