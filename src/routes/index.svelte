@@ -3,6 +3,7 @@
   import Service from '../components/blocks/service/Service.svelte';
   import Services from '../components/blocks/services/Services.svelte';
   import Advantages from '../components/blocks/advantages/Advantages.svelte';
+  import QuizSection from '../components/blocks/quiz/QuizSection.svelte';
 
   import SwiperCore, { EffectFade, Pagination, Navigation } from 'swiper';
 
@@ -14,6 +15,7 @@
   <Service />
   <Services />
   <Advantages />
+  <QuizSection />
 </div>
 
 <style lang="scss">
