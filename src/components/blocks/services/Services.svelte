@@ -41,6 +41,15 @@
           pin: true,
         },
         '0',
+      )
+      .to(
+        '#services .d3',
+        {
+          y: -300,
+          duration: 6,
+          pin: true,
+        },
+        '0',
       );
   };
 
@@ -54,6 +63,10 @@
       {
         selector: '#services .d2 .wrapper',
         offset: -100,
+      },
+      {
+        selector: '#services .d3 .wrapper',
+        offset: -120,
       },
     ]);
   });
@@ -69,6 +82,9 @@
       </div>
       <div class="d2">
         <Image src="/img/background/4.png" />
+      </div>
+      <div class="d3">
+        <Image src="/img/background/5.png" />
       </div>
     </div>
   </div>
@@ -95,5 +111,11 @@
     width: 213px;
     right: -50px;
     top: -100px;
+  }
+  .d3 {
+    bottom: -30px;
+    left: -50px;
+    width: 174px;
+    height: 163px;
   }
 </style>

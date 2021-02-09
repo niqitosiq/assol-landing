@@ -64,7 +64,6 @@
         el: '#services .slider .pagination-bullets',
         clickable: true,
         renderBullet: function (index, className) {
-          console.log('hi');
           return '<span class="' + className + '"></span>';
         },
       },
