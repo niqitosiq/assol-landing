@@ -3,11 +3,9 @@
 
   import Header from '../components/header/Header.svelte';
   import { gsap } from 'gsap';
-  import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
   gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(ScrollToPlugin);
   let loaded = false;
 
   onMount(() => {

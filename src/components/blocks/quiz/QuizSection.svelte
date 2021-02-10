@@ -166,10 +166,16 @@
   };
 </script>
 
-<div class="quiz" id="quiz">
+<div id="quiz">
   <div class="container">
     <Header {...header} />
 
     <Quiz {step} bind:questions on:nextStep={nextStep} />
   </div>
 </div>
+
+<style>
+  #quiz {
+    margin-top: 150px;
+  }
+</style>

@@ -81,8 +81,9 @@
           компании
         </AdvantagesText>
       </div>
+
       <div class="cupboard-image">
-        <Image src="/img/advantages/cupboard.png" />
+        <Image src="/img/advantages/cupboard.png" lazy={false} />
       </div>
 
       <div class="services">

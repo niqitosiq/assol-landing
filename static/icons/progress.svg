@@ -1,0 +1,28 @@
+<svg width="153" height="40" viewBox="0 0 153 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<g>
+<rect opacity="0.1" x="0" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="12" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="24" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="36" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="48" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="60" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="72" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="84" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="96" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="108" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="120" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="132" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="144" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="156" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+
+<animateTransform  accumulate="none" additive="replace" attributeName="transform" calcMode="linear" dur="900ms" fill="remove" from="0 0" repeatCount="indefinite" restart="always" to="12 0" type="translate">
+</animateTransform>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="75.5662" y1="0" x2="75.5662" y2="40" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F67272"/>
+<stop offset="1" stop-color="#DE031C"/>
+</linearGradient>
+</defs>
+</svg>
