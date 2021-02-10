@@ -21,7 +21,6 @@
         {
           y: 200,
           duration: 6,
-          pin: true,
         },
         '0',
       )
@@ -30,7 +29,6 @@
         {
           y: -100,
           duration: 6,
-          pin: true,
         },
         '0',
       );

@@ -1,22 +1,25 @@
-<svg width="153" height="40" viewBox="0 0 153 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="116" height="40" viewBox="0 0 116 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 
 <g>
-<rect opacity="0.1" x="0" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="12" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="24" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="36" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="48" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="60" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="72" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="84" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="96" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="108" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="120" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="132" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="144" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
-<rect opacity="0.1" x="156" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/>
+<rect opacity="0.1" x="-38.625" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="-25.75" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="-12.875" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="0" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="12.875" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="25.75" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="38.625" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="51.5" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="64.375" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="77.25" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="90.125" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="103" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="115.875" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="128.75" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="141.625" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="154.5" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
+<rect opacity="0.1" x="167.375" y="-8" width="5" height="57" transform="skewX(-20)" fill="white"/> 
 
-<animateTransform  accumulate="none" additive="replace" attributeName="transform" calcMode="linear" dur="900ms" fill="remove" from="0 0" repeatCount="indefinite" restart="always" to="12 0" type="translate">
+<animateTransform  accumulate="none" additive="replace" attributeName="transform" calcMode="linear" dur="900ms" fill="remove" from="0 0" repeatCount="indefinite" restart="always" to="25.75 0" type="translate">
 </animateTransform>
 </g>
 <defs>

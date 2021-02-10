@@ -11,7 +11,7 @@
   };
 </script>
 
-<button {type} class={styling} on:click={emitEvent}>
+<button {type} class={styling} on:click={event => emitEvent('click', event)}>
   <span>
     <slot />
   </span>

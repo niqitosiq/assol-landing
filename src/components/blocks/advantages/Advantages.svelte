@@ -30,7 +30,6 @@
         {
           y: -50,
           duration: 6,
-          pin: true,
         },
         '0',
       )
@@ -39,7 +38,6 @@
         {
           y: -30,
           duration: 6,
-          pin: true,
         },
         '0',
       );
