@@ -38,6 +38,12 @@
       height: 395px;
       width: 709px;
       z-index: 3;
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        padding: 20px 20px;
+      }
     }
     &:after,
     &:before {
@@ -70,11 +76,19 @@
     height: 100%;
     object-fit: cover;
     border-radius: 21px;
+    @media screen and (max-width: 800px) {
+      max-width: 100%;
+      margin-bottom: 20px;
+      height: 150px;
+    }
   }
   .description {
     margin-left: 40px;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 800px) {
+      margin-left: 0px;
+    }
   }
 
   h3 {
@@ -95,5 +109,8 @@
   }
   .button {
     margin-top: auto;
+    @media screen and (max-width: 800px) {
+      margin-top: 20px;
+    }
   }
 </style>

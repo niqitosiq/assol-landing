@@ -129,6 +129,9 @@
     @media screen and (max-width: 1080px) {
       margin-top: 30px;
     }
+    @media screen and (max-width: 800px) {
+      max-width: 400px;
+    }
   }
   .button {
     width: 67px;
@@ -137,14 +140,34 @@
     top: calc(50% - 40px);
     transform: translateY(-50%);
     z-index: 15;
+    @media screen and (max-width: 580px) {
+      top: 100%;
+      transform: none;
+    }
     &.next {
       right: -38px;
       :global(svg) {
         transform: rotate(180deg);
       }
+      @media screen and (max-width: 800px) {
+        right: auto;
+        left: calc(100% + 5px);
+      }
+      @media screen and (max-width: 580px) {
+        right: 0px;
+        left: auto;
+      }
     }
     &.prev {
       left: -38px;
+      @media screen and (max-width: 800px) {
+        right: calc(100% + 5px);
+        left: auto;
+      }
+      @media screen and (max-width: 580px) {
+        left: 0px;
+        right: auto;
+      }
     }
   }
   .pagination {

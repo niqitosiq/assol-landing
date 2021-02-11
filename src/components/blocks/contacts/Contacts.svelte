@@ -2,6 +2,7 @@
   import Header from '../../ui/Header.svelte';
   import Icon from '../../ui/Icon.svelte';
   import Image from 'svelte-image';
+  import Map from './Map.svelte';
 
   import { gsap } from 'gsap';
   import { initParallax } from '../../utils/parallax';
@@ -88,26 +89,7 @@
       </div>
     </div>
     <div class="map-wrapper">
-      <a
-        href="https://yandex.ru/maps/38/volgograd/?utm_medium=mapframe&utm_source=maps"
-        style="color:#eee;font-size:12px;position:absolute;top:0px;"
-      >
-        Волгоград
-      </a>
-      <a
-        href="https://yandex.ru/maps/38/volgograd/house/krasnopolyanskaya_ulitsa_32/YE0Ycg9gSEcBQFpifXt3dX9ibQ==/?ll=44.524229%2C48.749551&utm_medium=mapframe&utm_source=maps&z=13"
-        style="color:#eee;font-size:12px;position:absolute;top:14px;"
-      >
-        Краснополянская улица, 32 — Яндекс.Карты
-      </a>
-      <iframe
-        title="Яндекс карта"
-        src="https://yandex.ru/map-widget/v1/-/CCUMVLVHSA"
-        width="100%"
-        height="100%"
-        allowfullscreen="true"
-        style="position:relative;"
-      />
+      <Map />
     </div>
   </div>
 </div>

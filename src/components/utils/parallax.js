@@ -24,7 +24,6 @@ const startAnimation = () => {
   };
   const step = () => {
     if (mouse[2]) {
-      console.log(globalParallax);
       globalParallax.forEach(({ selector, offset }) => {
         animate(selector, offset);
       });
