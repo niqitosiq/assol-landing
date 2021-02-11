@@ -1,6 +1,6 @@
 <script>
   import Icon from '../ui/Icon.svelte';
-  import Menu from './Menu.svelte';
+  import Menu from '../Menu.svelte';
   import Image from 'svelte-image';
 
   const phone = '8 (903) 375-86-02';
@@ -87,6 +87,9 @@
       flex-shrink: 0;
       width: 40px;
       height: 40px;
+      :global(img) {
+        border-radius: 40px;
+      }
     }
     span {
       display: block;
