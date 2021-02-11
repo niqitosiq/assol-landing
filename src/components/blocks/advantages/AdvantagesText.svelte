@@ -34,6 +34,9 @@
       z-index: 3;
       border-radius: 11px;
     }
+    @media screen and (max-width: 920px) {
+      width: 100%;
+    }
   }
 
   p {
@@ -49,5 +52,8 @@
     position: absolute;
     left: 0;
     top: 0;
+    @media screen and (max-width: 920px) {
+      display: none;
+    }
   }
 </style>

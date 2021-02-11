@@ -96,5 +96,9 @@
   .menu {
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 1108px) {
+      display: none;
+    }
   }
 </style>

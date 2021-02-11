@@ -124,10 +124,15 @@
 </div>
 
 <style lang="scss">
+  .advantages {
+    width: 100%;
+    overflow: hidden;
+  }
   .container {
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
   }
   .cupboard {
     margin-top: 50px;
@@ -137,6 +142,17 @@
       position: relative;
       width: 100%;
       z-index: 10;
+    }
+    @media screen and (max-width: 1222px) {
+      position: static;
+    }
+    @media screen and (max-width: 1020px) {
+      max-width: calc(100% - 200px);
+    }
+    @media screen and (max-width: 920px) {
+      margin-top: 140px;
+      position: relative;
+      padding-bottom: 150px;
     }
   }
   .decor {
@@ -153,11 +169,30 @@
     right: 50px;
     transform: translateX(100%);
   }
+
   .advantages-text-wrapper {
     position: absolute;
     right: calc(100% - 20px);
     top: 144px;
     z-index: 8;
+    @media screen and (max-width: 1222px) {
+      right: auto;
+      left: 7%;
+      top: 410px;
+    }
+    @media screen and (max-width: 1080px) {
+      left: 5%;
+    }
+    @media screen and (max-width: 1080px) {
+      left: 5%;
+    }
+    @media screen and (max-width: 1030px) {
+      left: 0%;
+    }
+    @media screen and (max-width: 920px) {
+      left: 0%;
+      top: -100px;
+    }
   }
 
   .services {
@@ -165,6 +200,17 @@
     left: calc(100% - 100px);
     top: 104px;
     z-index: 15;
+    @media screen and (max-width: 1222px) {
+      right: 30px;
+      left: auto;
+      top: auto;
+      bottom: 100px;
+    }
+    @media screen and (max-width: 920px) {
+      bottom: 0px;
+      right: auto;
+      left: 0px;
+    }
   }
 
   .service {
@@ -173,6 +219,10 @@
     height: 159px;
     padding: 5px;
     position: relative;
+    @media screen and (max-width: 920px) {
+      width: 100%;
+      box-sizing: content-box;
+    }
     &-wrapper {
       height: 147px;
       display: flex;
@@ -180,6 +230,9 @@
       align-items: center;
       z-index: 2;
       transition: transform ease 0.3s;
+      @media screen and (max-width: 920px) {
+        height: 159px;
+      }
       &:after {
         content: '';
         box-sizing: border-box;

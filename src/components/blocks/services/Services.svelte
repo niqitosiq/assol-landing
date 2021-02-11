@@ -90,6 +90,8 @@
 <style lang="scss">
   .services {
     position: relative;
+    width: 100%;
+    overflow: hidden;
   }
   .container {
     position: relative;

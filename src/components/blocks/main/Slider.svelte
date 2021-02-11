@@ -225,7 +225,7 @@
       opacity: 1;
     }
     @media screen and (max-width: 1080px) {
-      margin-top: 30px;
+      margin-top: 80px;
     }
   }
   .slide {
