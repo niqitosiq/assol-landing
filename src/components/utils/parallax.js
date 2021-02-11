@@ -1,11 +1,15 @@
 import { gsap } from 'gsap';
 
+let globalParallax = [];
+
 const initParallax = parallax => {
   const rect = document.body;
   let mouse = [0, 0, false];
   rect.addEventListener('mousemove', event => {
     mouse = [event.x, event.y, true];
   });
+
+  globalParallax = [...globalParallax, ...parallax];
 
   const animate = (target, movement) => {
     gsap.to(target, {
@@ -17,7 +21,7 @@ const initParallax = parallax => {
 
   const step = () => {
     if (mouse[2]) {
-      parallax.forEach(({ selector, offset }) => {
+      globalParallax.forEach(({ selector, offset }) => {
         animate(selector, offset);
       });
     }
