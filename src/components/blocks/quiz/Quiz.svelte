@@ -22,7 +22,6 @@
   $: isAnswerSelected = activeStep.answer !== null;
 
   const nextStep = () => {
-    console.log('nextStep');
     dispatch('nextStep');
   };
 </script>
@@ -46,7 +45,7 @@
           in:fade={{ duration: 300, delay: 300 }}
           out:fade={{ duration: 300, delay: 0 }}
         >
-          {#each activeStep.options as option, index}
+          {#each activeStep.options as option}
             <div
               class="option"
               class:selected={activeStep.answer === option.label}
@@ -68,6 +67,7 @@
 
 <style lang="scss">
   .quiz {
+    z-index: 30;
     margin-top: 50px;
     display: flex;
     max-width: 1246px;
@@ -76,6 +76,7 @@
     padding: 9px;
     position: relative;
     border-radius: 10px;
+    box-shadow: 0px 14px 74px rgba(0, 0, 0, 0.11);
     &:after {
       content: '';
       width: calc(100% - 18px);

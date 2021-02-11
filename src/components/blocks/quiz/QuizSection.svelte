@@ -1,6 +1,11 @@
 <script>
   import Header from '../../ui/Header.svelte';
   import Quiz from './Quiz.svelte';
+  import Image from 'svelte-image';
+
+  import { gsap } from 'gsap';
+  import { onMount } from 'svelte';
+  import { initParallax } from '../../utils/parallax';
 
   const header = {
     name: 'Квиз-опрос',
@@ -164,18 +169,76 @@
   const nextStep = () => {
     step++;
   };
+
+  const initAnimations = () => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#quiz',
+          scrub: true,
+          start: 'top center',
+          end: '+=100%',
+        },
+      })
+      .to(
+        '#quiz .d1',
+        {
+          y: 250,
+          duration: 6,
+        },
+        '0',
+      );
+  };
+
+  onMount(() => {
+    initAnimations();
+    initParallax([
+      {
+        selector: '#quiz .d1 .wrapper',
+        offset: 30,
+      },
+    ]);
+  });
 </script>
 
 <div id="quiz">
+  <div class="cloud">
+    <Image src="/img/background/cloud.png" alt="cloud-background" />
+  </div>
   <div class="container">
     <Header {...header} />
 
     <Quiz {step} bind:questions on:nextStep={nextStep} />
+
+    <div class="decor d1">
+      <Image src="/img/background/6.png" />
+    </div>
   </div>
 </div>
 
 <style>
   #quiz {
     margin-top: 150px;
+    position: relative;
+  }
+  .container {
+    position: relative;
+  }
+  .cloud {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100px;
+    left: 0;
+    z-index: -1;
+  }
+  .decor {
+    position: absolute;
+    pointer-events: none;
+  }
+  .d1 {
+    width: 131px;
+    left: 70px;
+    top: -150px;
   }
 </style>
