@@ -2,6 +2,7 @@
   import Icon from '../ui/Icon.svelte';
   import Menu from '../Menu.svelte';
   import Image from 'svelte-image';
+  import Burger from '../ui/Burger.svelte';
 
   const phone = '8 (903) 375-86-02';
 </script>
@@ -48,6 +49,10 @@
       </div>
       <span> {phone} </span>
     </a>
+
+    <div class="burger">
+      <Burger />
+    </div>
   </div>
   <div class="menu container">
     <Menu />
@@ -59,11 +64,13 @@
     display: flex;
     justify-content: space-between;
   }
+
   .social {
     img {
       width: 21px;
     }
   }
+
   .logo {
     display: flex;
     align-items: center;
@@ -83,6 +90,9 @@
   .map {
     display: flex;
     align-items: center;
+    @media screen and (max-width: 720px) {
+      display: none;
+    }
     &-icon {
       flex-shrink: 0;
       width: 40px;
@@ -146,10 +156,24 @@
         font-size: 18px;
       }
     }
+    @media screen and (max-width: 720px) {
+      display: none;
+    }
   }
 
   .menu {
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 720px) {
+      display: none;
+    }
+  }
+
+  .burger {
+    display: none;
+    align-items: center;
+    @media screen and (max-width: 720px) {
+      display: flex;
+    }
   }
 </style>

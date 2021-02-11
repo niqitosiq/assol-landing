@@ -12,9 +12,11 @@
 </script>
 
 <button {type} class={styling} on:click={event => emitEvent('click', event)}>
-  <span>
-    <slot />
-  </span>
+  <slot name="custom">
+    <span>
+      <slot />
+    </span>
+  </slot>
 </button>
 
 <style lang="scss">
@@ -29,7 +31,8 @@
     border-radius: 30px;
     border: none;
     background-color: transparent;
-    span {
+    > :global(span),
+    > :global(div) {
       display: block;
       position: relative;
       z-index: 5;
@@ -69,7 +72,8 @@
 
     &:hover {
       &:after,
-      span {
+      > :global(span),
+      > :global(div) {
         transform: translateY(0);
       }
     }

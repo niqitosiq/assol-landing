@@ -35,17 +35,19 @@
   };
 
   onMount(() => {
-    initAnimations();
-    initParallax([
-      {
-        selector: '.decor-1 .wrapper',
-        offset: -80,
-      },
-      {
-        selector: '.decor-2 .wrapper',
-        offset: -60,
-      },
-    ]);
+    initParallax(
+      [
+        {
+          selector: '.decor-1 .wrapper',
+          offset: -80,
+        },
+        {
+          selector: '.decor-2 .wrapper',
+          offset: -60,
+        },
+      ],
+      initAnimations,
+    );
   });
 </script>
 

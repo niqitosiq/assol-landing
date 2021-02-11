@@ -1,15 +1,19 @@
 import { gsap } from 'gsap';
 
 let globalParallax = [];
+let gsapAnimations = [];
 
-const initParallax = parallax => {
+let mounted = false;
+
+const startAnimation = () => {
+  if (!mounted) return;
+
   const rect = document.body;
   let mouse = [0, 0, false];
+
   rect.addEventListener('mousemove', event => {
     mouse = [event.x, event.y, true];
   });
-
-  globalParallax = [...globalParallax, ...parallax];
 
   const animate = (target, movement) => {
     gsap.to(target, {
@@ -18,9 +22,9 @@ const initParallax = parallax => {
       duration: 0.5,
     });
   };
-
   const step = () => {
     if (mouse[2]) {
+      console.log(globalParallax);
       globalParallax.forEach(({ selector, offset }) => {
         animate(selector, offset);
       });
@@ -29,7 +33,21 @@ const initParallax = parallax => {
     window.requestAnimationFrame(step);
   };
 
+  gsapAnimations.forEach(animation => animation());
+
   window.requestAnimationFrame(step);
 };
 
-export { initParallax };
+const initParallax = (parallax, gsapAnimation) => {
+  globalParallax.push(...parallax);
+  gsapAnimations.push(gsapAnimation);
+};
+
+const initAnimations = () => {
+  if (window.outerWidth < 960) return;
+
+  mounted = true;
+  startAnimation();
+};
+
+export { initParallax, initAnimations };

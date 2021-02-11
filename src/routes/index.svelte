@@ -7,8 +7,15 @@
   import Contacts from '../components/blocks/contacts/Contacts.svelte';
 
   import SwiperCore, { EffectFade, Pagination, Navigation } from 'swiper';
+  import { initAnimations } from '../components/utils/parallax';
+
+  import { onMount } from 'svelte';
 
   SwiperCore.use([EffectFade, Pagination, Navigation]);
+
+  onMount(() => {
+    initAnimations();
+  });
 </script>
 
 <div class="index">

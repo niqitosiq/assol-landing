@@ -4,7 +4,6 @@
   import Image from 'svelte-image';
 
   import { gsap } from 'gsap';
-  import { onMount } from 'svelte';
   import { initParallax } from '../../utils/parallax';
 
   const header = {
@@ -43,9 +42,8 @@
       );
   };
 
-  onMount(() => {
-    initAnimations();
-    initParallax([
+  initParallax(
+    [
       {
         selector: '#advantages .d1 .wrapper',
         offset: 30,
@@ -58,8 +56,9 @@
         selector: '#advantages .advantages-text-wrapper',
         offset: 60,
       },
-    ]);
-  });
+    ],
+    initAnimations,
+  );
 </script>
 
 <div class="advantages" id="advantages">
