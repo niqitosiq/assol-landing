@@ -205,8 +205,8 @@
 <style lang="scss">
   .slider {
     height: 100%;
-    max-width: 613px;
     width: 100%;
+    max-width: 613px;
     overflow: hidden;
     opacity: 0;
     transition: opacity ease 0.3s;
@@ -218,8 +218,7 @@
       opacity: 1;
     }
     :global(.swiper-slide) {
-      width: auto !important;
-      max-width: 100%;
+      width: 100% !important;
     }
     &.client {
       overflow: visible;
@@ -230,9 +229,10 @@
     }
   }
   .slide {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    .image {
+      width: 100%;
+      height: 100%;
+    }
     :global(img) {
       width: 100%;
     }
