@@ -1,7 +1,6 @@
 import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
 import imagemin from 'rollup-plugin-imagemin';
-import imageminPngquant from 'imagemin-pngquant';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import url from '@rollup/plugin-url';
@@ -69,7 +68,7 @@ export default {
       }),
 
       url({
-        sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
+        sourceDir: path.resolve(__dirname, 'src/node_modules/img'),
         publicPath: '/client/',
       }),
 
@@ -83,8 +82,6 @@ export default {
       string({
         include: './src/node_modules/*.vrtx',
       }),
-
-      imagemin(),
 
       legacy &&
         babel({
@@ -124,6 +121,8 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
+      imagemin(),
+
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
@@ -141,7 +140,7 @@ export default {
       }),
 
       url({
-        sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
+        sourceDir: path.resolve(__dirname, 'src/node_modules/img'),
         publicPath: '/client/',
         emitFiles: false, // already emitted by client build
       }),
@@ -151,8 +150,6 @@ export default {
       }),
 
       commonjs(),
-
-      imagemin(),
 
       string({
         include: './src/node_modules/*.vrtx',

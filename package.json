@@ -35,6 +35,8 @@
     "@rollup/plugin-replace": "^2.2.0",
     "@rollup/plugin-url": "^6.0.0",
     "autoprefixer": "^10.1.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
     "imagemin-pngquant": "^9.0.1",
     "node-sass": "^5.0.0",
     "rollup": "^2.3.4",
