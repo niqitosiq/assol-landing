@@ -23,7 +23,7 @@ export default function optimizeImages({
 
       imageMins.push(
         imagemin([`${images}/**/*.png`], {
-          plugins: [imageminWebp({ quality: 70 })],
+          plugins: [imageminWebp({ quality: 90 })],
         }).then(files =>
           files.forEach(async v => {
             let source = path.parse(v.sourcePath);

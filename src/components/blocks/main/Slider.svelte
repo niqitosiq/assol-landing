@@ -3,13 +3,14 @@
   import { Swiper } from 'swiper';
   import Button from '../../ui/Button.svelte';
   import Icon from '../../ui/Icon.svelte';
+  import Image from '../../ui/Image.svelte';
 
   let client = false;
 
   let slides = [
     {
       name: 'Кухня из древесного бруса',
-      img: '/g/img/slider/1.png',
+      img: '/img/slider/1.png',
       points: [
         {
           x: 15,
@@ -35,7 +36,7 @@
     },
     {
       name: 'Кухня из древесного бруса2',
-      img: '/g/img/slider/1.png',
+      img: '/img/slider/1.png',
       points: [
         {
           x: 0,
@@ -61,7 +62,7 @@
     },
     {
       name: 'Кухня из древесного бруса3',
-      img: '/g/img/slider/1.png',
+      img: '/img/slider/1.png',
       points: [
         {
           x: 15,
@@ -87,7 +88,7 @@
     },
     {
       name: 'Кухня из древесного бруса3',
-      img: '/g/img/slider/1.png',
+      img: '/img/slider/1.png',
       points: [
         {
           x: 15,
@@ -161,7 +162,7 @@
       {#each slides as { img, points }}
         <div class="swiper-slide">
           <div class="slide">
-            <img src={img} alt="" />
+            <div class="image"><Image src={img} alt="" /></div>
             <div class="points">
               {#each points as { x, y, text }}
                 <div class="point" style={getPointStyle(x, y)}>
@@ -232,7 +233,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    img {
+    :global(img) {
       width: 100%;
     }
   }

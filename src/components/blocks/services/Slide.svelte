@@ -1,5 +1,6 @@
 <script>
   import Button from '../../ui/Button.svelte';
+  import Image from '../../ui/Image.svelte';
   import Tag from './Tag.svelte';
 
   export let img;
@@ -10,7 +11,9 @@
 
 <div class="slide">
   <div class="slide-wrapper">
-    <img src={img} alt="" />
+    <div class="image">
+      <Image src={img} alt="" />
+    </div>
     <div class="description">
       <h3>
         {name}
@@ -69,13 +72,15 @@
       width: calc(100% - 10px);
     }
   }
-  img {
+  .image {
     max-width: 355px;
     width: 100%;
     min-width: 240px;
     height: 100%;
-    object-fit: cover;
-    border-radius: 21px;
+    :global(img) {
+      object-fit: cover;
+      border-radius: 21px;
+    }
     @media screen and (max-width: 800px) {
       max-width: 100%;
       margin-bottom: 20px;

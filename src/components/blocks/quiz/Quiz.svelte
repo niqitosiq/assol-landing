@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
-  import Image from 'svelte-image';
+  import Image from '../../ui/Image.svelte';
   import QuizProgress from './QuizProgress.svelte';
   import Button from '../../ui/Button.svelte';
   import { fade } from 'svelte/transition';
@@ -52,7 +52,7 @@
               on:click={() => setAnswer(option)}
             >
               <h5>{option.label}</h5>
-              <img src="/g/img/quiz/{option.img}.png" alt="" />
+              <Image src="/img/quiz/{option.img}.png" alt="" />
             </div>
           {/each}
         </div>

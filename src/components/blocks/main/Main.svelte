@@ -1,7 +1,7 @@
 <script>
   import QuizLead from './QuizLead.svelte';
   import Slider from './Slider.svelte';
-  import Image from 'svelte-image';
+  import Image from '../../ui/Image.svelte';
   import { gsap } from 'gsap';
   import { onMount } from 'svelte';
   import { initParallax } from '../../utils/parallax';

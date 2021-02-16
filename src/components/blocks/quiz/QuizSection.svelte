@@ -1,7 +1,7 @@
 <script>
   import Header from '../../ui/Header.svelte';
   import Quiz from './Quiz.svelte';
-  import Image from 'svelte-image';
+  import Image from '../../ui/Image.svelte';
 
   import { gsap } from 'gsap';
   import { initParallax } from '../../utils/parallax';

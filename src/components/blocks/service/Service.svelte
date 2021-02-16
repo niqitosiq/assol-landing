@@ -1,6 +1,6 @@
 <script>
   import Header from '../../ui/Header.svelte';
-  import Image from 'svelte-image';
+  import Image from '../../ui/Image.svelte';
 
   const header = {
     name: 'СЕРВИС',
@@ -18,7 +18,7 @@
       <div class="service">
         <div class="service-wrapper">
           <div class="image">
-            <Image src="/g/img/service/1.jpg" />
+            <Image src="/img/service/1.jpg" />
           </div>
           <div class="description">
             <h3>Упаковка</h3>
@@ -29,7 +29,7 @@
       <div class="service">
         <div class="service-wrapper">
           <div class="image">
-            <Image src="/g/img/service/2.jpg" />
+            <Image src="/img/service/2.jpg" />
           </div>
           <div class="description">
             <h3>Упаковка</h3>
@@ -40,7 +40,7 @@
       <div class="service">
         <div class="service-wrapper">
           <div class="image">
-            <Image src="/g/img/service/3.jpg" />
+            <Image src="/img/service/3.jpg" />
           </div>
           <div class="description">
             <h3>Упаковка</h3>

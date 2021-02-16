@@ -1,8 +1,8 @@
 <script>
   import Icon from '../ui/Icon.svelte';
   import Menu from '../Menu.svelte';
-  import Image from 'svelte-image';
   import Burger from '../ui/Burger.svelte';
+  import Image from '../ui/Image.svelte';
 
   const phone = '8 (903) 375-86-02';
 </script>
@@ -32,7 +32,7 @@
       <span> Мы в соц. сетях: </span>
       <div class="social-icons">
         <a href="/#">
-          <img src="/icons/instagram.svg" alt="" />
+          <Image src="/icons/instagram.svg" alt="" />
         </a>
         <a href="/#">
           <Icon name="viber" />
@@ -66,7 +66,7 @@
   }
 
   .social {
-    img {
+    :global(img) {
       width: 21px;
     }
   }
@@ -122,7 +122,7 @@
         height: 22px;
         margin-left: 15px;
       }
-      img {
+      :global(img) {
         width: 22px;
       }
       :global(svg) {

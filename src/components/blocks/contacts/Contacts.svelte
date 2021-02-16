@@ -1,7 +1,7 @@
 <script>
   import Header from '../../ui/Header.svelte';
   import Icon from '../../ui/Icon.svelte';
-  import Image from 'svelte-image';
+  import Image from '../../ui/Image.svelte';
   import Map from './Map.svelte';
 
   import { gsap } from 'gsap';

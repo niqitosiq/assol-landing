@@ -23,6 +23,7 @@ const preprocess = seqPreprocessor([
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
+const optimize = process.env.OPTIMIZE == 'true';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) => {
@@ -82,8 +83,6 @@ export default {
       string({
         include: './src/node_modules/*.vrtx',
       }),
-
-      optimizeImages(),
 
       legacy &&
         babel({
@@ -155,6 +154,8 @@ export default {
         include: './src/node_modules/*.vrtx',
         include: './src/components/background/circles/*.svg',
       }),
+
+      optimize && optimizeImages(),
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules,

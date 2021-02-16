@@ -1,7 +1,7 @@
 <script>
   import Header from '../../ui/Header.svelte';
   import AdvantagesText from './AdvantagesText.svelte';
-  import Image from 'svelte-image';
+  import Image from '../../ui/Image.svelte';
 
   import { gsap } from 'gsap';
   import { initParallax } from '../../utils/parallax';
@@ -87,7 +87,7 @@
         <div class="service">
           <div class="service-wrapper">
             <div class="image">
-              <Image src="/g/img/service/2.jpg" />
+              <Image src="/img/service/2.jpg" />
             </div>
             <div class="description">
               <h3>Упаковка</h3>
@@ -98,7 +98,7 @@
         <div class="service">
           <div class="service-wrapper">
             <div class="image">
-              <Image src="/g/img/service/2.jpg" />
+              <Image src="/img/service/2.jpg" />
             </div>
             <div class="description">
               <h3>Упаковка</h3>
@@ -109,7 +109,7 @@
         <div class="service">
           <div class="service-wrapper">
             <div class="image">
-              <Image src="/g/img/service/2.jpg" />
+              <Image src="/img/service/2.jpg" />
             </div>
             <div class="description">
               <h3>Упаковка</h3>

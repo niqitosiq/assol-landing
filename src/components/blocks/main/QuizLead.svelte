@@ -1,6 +1,6 @@
 <script>
   import Button from '../../ui/Button.svelte';
-  import Image from 'svelte-image';
+  import Image from '../../ui/Image.svelte';
 </script>
 
 <div class="quiz-lead">
