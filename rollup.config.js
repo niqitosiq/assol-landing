@@ -1,6 +1,5 @@
 import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
-import imagemin from 'rollup-plugin-imagemin';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import url from '@rollup/plugin-url';
@@ -13,6 +12,7 @@ import pkg from './package.json';
 import sveltePreprocess from 'svelte-preprocess';
 import seqPreprocessor from 'svelte-sequential-preprocessor';
 import svgicons from 'rollup-plugin-svg-icons';
+import optimizeImages from './plugins/optimizeImages';
 
 const preprocess = seqPreprocessor([
   sveltePreprocess({
@@ -83,6 +83,8 @@ export default {
         include: './src/node_modules/*.vrtx',
       }),
 
+      optimizeImages(),
+
       legacy &&
         babel({
           extensions: ['.js', '.mjs', '.html', '.svelte'],
@@ -121,8 +123,6 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
-      imagemin(),
-
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
