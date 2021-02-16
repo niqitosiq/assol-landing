@@ -1,5 +1,7 @@
 import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
+import imagemin from 'rollup-plugin-imagemin';
+import imageminPngquant from 'imagemin-pngquant';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import url from '@rollup/plugin-url';
@@ -12,24 +14,11 @@ import pkg from './package.json';
 import sveltePreprocess from 'svelte-preprocess';
 import seqPreprocessor from 'svelte-sequential-preprocessor';
 import svgicons from 'rollup-plugin-svg-icons';
-import image from 'svelte-image';
 
 const preprocess = seqPreprocessor([
   sveltePreprocess({
     postcss: true,
     sass: true,
-  }),
-  image({
-    optimizeAll: true,
-    inlineBelow: 50000000,
-    publicDir: './static/',
-    outputDir: 'g/',
-    placeholder: 'blur',
-    sizes: [400, 800, 1200],
-    processFolders: ['img'],
-    processFoldersRecursively: true,
-    processFoldersSizes: false,
-    quality: 100,
   }),
 ]);
 
@@ -83,15 +72,19 @@ export default {
         sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
         publicPath: '/client/',
       }),
+
       resolve({
         browser: true,
         dedupe: ['svelte'],
       }),
+
       commonjs(),
 
       string({
         include: './src/node_modules/*.vrtx',
       }),
+
+      imagemin(),
 
       legacy &&
         babel({
@@ -135,6 +128,7 @@ export default {
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
+
       svelte({
         generate: 'ssr',
         hydratable: true,
@@ -151,10 +145,14 @@ export default {
         publicPath: '/client/',
         emitFiles: false, // already emitted by client build
       }),
+
       resolve({
         dedupe: ['svelte'],
       }),
+
       commonjs(),
+
+      imagemin(),
 
       string({
         include: './src/node_modules/*.vrtx',
