@@ -85,6 +85,10 @@
       align-items: center;
       padding-top: 100px;
     }
+
+    @media screen and (max-width: 680px) {
+      padding-top: 10px;
+    }
   }
   p {
     margin-top: 30px;
@@ -107,6 +111,10 @@
     }
     @media screen and (max-width: 1080px) {
       top: 0px;
+    }
+    @media screen and (max-width: 680px) {
+      width: 100px;
+      z-index: -1;
     }
   }
   .decor-2 {

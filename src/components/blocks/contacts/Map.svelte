@@ -5,7 +5,7 @@
     {
       latitude: 55.75361503443606,
       longitude: 37.620883000000006,
-      name: 'Мы находимя тут!',
+      name: 'Мы находимся тут!',
     },
   ];
 
@@ -18,7 +18,9 @@
       zoom: zoom,
       controls: [],
     });
+
     const points = myMap.geoObjects;
+
     locations.forEach(location => {
       points.add(
         new ymaps.Placemark(
@@ -30,19 +32,31 @@
         ),
       );
     });
+
+    myMap.behaviors.disable('scrollZoom');
   }
 
-  onMount(() => {
+  const initMap = () => {
+    if (!window.ymaps) {
+      setTimeout(initMap, 250);
+      return;
+    }
+
     ymaps.ready(() => {
       loadMap();
     });
+  };
+
+  onMount(() => {
+    initMap();
   });
 </script>
 
 <svelte:head>
   <script
-    src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cf1b8beb-bb0c-4563-9d28-c603002dd2ad"
-    type="text/javascript">
+    src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cf1b8beb-bb0c-4563-9d28-c603002dd2ad&load=Map,Placemark,geoObject.addon.balloon"
+    type="text/javascript"
+    defer>
   </script>
 </svelte:head>
 
