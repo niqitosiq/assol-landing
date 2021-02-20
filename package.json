@@ -9,6 +9,7 @@
     "start": "node __sapper__/build"
   },
   "dependencies": {
+    "@splidejs/splide": "^2.4.21",
     "compression": "^1.7.1",
     "gsap": "./gsap-bonus.tgz",
     "imagemin-zopfli": "^7.0.0",

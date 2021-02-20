@@ -1,9 +1,11 @@
 <script>
   import { onMount } from 'svelte';
-  import { Swiper } from 'swiper';
   import Button from '../../ui/Button.svelte';
   import Icon from '../../ui/Icon.svelte';
   import Image from '../../ui/Image.svelte';
+  import Splide from '@splidejs/splide/src/js/splide';
+  import { LIGHT } from '@splidejs/splide/src/js/components/index';
+  import { Fade } from '@splidejs/splide/src/js/transitions/index';
 
   let client = false;
 
@@ -39,7 +41,7 @@
       img: '/img/slider/1.png',
       points: [
         {
-          x: 0,
+          x: 20,
           y: 50,
           text: 'Белый брус создает уникальную обстановку на кухне',
         },
@@ -114,13 +116,14 @@
     },
   ];
 
+  let pagination;
   const slidesCount = slides.length;
 
   const getPointStyle = (x, y) => {
     return `top: ${y}%; left: ${x}%;`;
   };
 
-  let swiperIntance = {};
+  let splideInstance = {};
   let activeIndex = 0;
 
   let activeSlide = slides[0];
@@ -128,54 +131,57 @@
   $: activeSlide = slides[activeIndex];
 
   const slideChanged = () => {
-    activeIndex = swiperIntance.realIndex || 0;
+    activeIndex = splideInstance.index || 0;
+  };
+
+  const nextSlide = () => {
+    splideInstance.go('+1');
+  };
+
+  const prevSlide = () => {
+    splideInstance.go('-1');
   };
 
   onMount(() => {
-    swiperIntance = new Swiper('#main .swiper-container', {
-      spaceBetween: 0,
-      slidesPerView: 'auto',
-      effect: 'fade',
+    splideInstance = new Splide('.splide', {
+      gap: 0,
+      perPage: 1,
+      type: 'fade',
       loop: true,
-      navigation: {
-        nextEl: '#main .slider .button.next',
-        prevEl: '#main .slider .button.prev',
-      },
-      pagination: {
-        el: '#main .slider .pagination-bullets',
-        clickable: true,
-        renderBullet: function (index, className) {
-          return '<span class="' + className + '"></span>';
-        },
-      },
-      on: {
-        slideChange: slideChanged,
-      },
-    });
+      arrows: false,
+      pagination: 'slider',
+    }).mount(LIGHT, Fade);
+
+    pagination.appendChild(splideInstance.Components.Pagination.data.list);
+
+    splideInstance.on('moved', slideChanged);
+
     client = true;
   });
 </script>
 
 <div class="slider" class:client>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      {#each slides as { img, points }}
-        <div class="swiper-slide">
-          <div class="slide">
-            <div class="image"><Image src={img} alt="" /></div>
-            <div class="points">
-              {#each points as { x, y, text }}
-                <div class="point" style={getPointStyle(x, y)}>
-                  <div class="point-circle" />
-                  <div class="point-text">
-                    {text}
+  <div class="splide">
+    <div class="splide__track">
+      <div class="splide__list">
+        {#each slides as { img, points }}
+          <div class="splide__slide">
+            <div class="slide">
+              <div class="image"><Image src={img} alt="" /></div>
+              <div class="points">
+                {#each points as { x, y, text }}
+                  <div class="point" style={getPointStyle(x, y)}>
+                    <div class="point-circle" />
+                    <div class="point-text">
+                      {text}
+                    </div>
                   </div>
-                </div>
-              {/each}
+                {/each}
+              </div>
             </div>
           </div>
-        </div>
-      {/each}
+        {/each}
+      </div>
     </div>
   </div>
 
@@ -187,13 +193,13 @@
       <div class="current-name">{activeSlide.name}</div>
     </div>
     <div class="navigation">
-      <div class="button prev">
+      <div class="button prev" on:click={prevSlide}>
         <Button>
           <Icon name="arrow" />
         </Button>
       </div>
-      <div class="pagination-bullets" />
-      <div class="button next">
+      <div class="pagination-bullets" bind:this={pagination} />
+      <div class="button next" on:click={nextSlide}>
         <Button>
           <Icon name="arrow" />
         </Button>
@@ -210,14 +216,14 @@
     overflow: hidden;
     opacity: 0;
     transition: opacity ease 0.3s;
-    :global(.swiper-container) {
+    :global(.splide) {
       overflow: visible;
     }
-    :global(.swiper-slide-active .point) {
+    :global(.splide__slide.is-active .point) {
       transform: scale(1);
       opacity: 1;
     }
-    :global(.swiper-slide) {
+    :global(.splide__slide) {
       width: 100% !important;
     }
     &.client {
@@ -366,8 +372,13 @@
     }
     &-bullets {
       margin: 0 36px;
-      :global(.swiper-pagination-bullet) {
+      :global(.splide__pagination) {
+        width: 100%;
+      }
+      :global(li) {
         margin-right: 24px;
+      }
+      :global(.splide__pagination__page) {
         background-color: #d8d8d8;
         width: 6px;
         height: 6px;
@@ -376,8 +387,11 @@
         opacity: 1;
         &:last-child {
           margin-right: 0;
+          padding: 0px;
+          border: none;
+          border-radius: 6px;
         }
-        &.swiper-pagination-bullet-active {
+        &.is-active {
           background-color: #ed4852;
           opacity: 1;
           transform: scale(2);
