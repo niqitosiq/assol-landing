@@ -1,12 +1,14 @@
 <script>
   import { onMount } from 'svelte';
 
-  import { Swiper } from 'swiper';
+  import Splide from '@splidejs/splide/src/js/splide';
+  import { LIGHT } from '@splidejs/splide/src/js/components/index';
+  import { Slide } from '@splidejs/splide/src/js/transitions/index';
 
   import Button from '../../ui/Button.svelte';
   import Icon from '../../ui/Icon.svelte';
 
-  import Slide from './Slide.svelte';
+  import SliderSlide from './Slide.svelte';
 
   const slides = [
     {
@@ -50,45 +52,52 @@
       },
     },
   ];
-  let client = false;
+  let splideWrapper;
+  let pagination;
+  let splideInstance;
+
+  const nextSlide = () => {
+    splideInstance.go('+1');
+  };
+
+  const prevSlide = () => {
+    splideInstance.go('-1');
+  };
 
   onMount(() => {
-    new Swiper('#services .swiper-container', {
-      spaceBetween: 100,
-      slidesPerView: 1,
-      navigation: {
-        nextEl: '#services .slider .button.next',
-        prevEl: '#services .slider .button.prev',
-      },
-      pagination: {
-        el: '#services .slider .pagination-bullets',
-        clickable: true,
-        renderBullet: function (index, className) {
-          return '<span class="' + className + '"></span>';
-        },
-      },
-    });
-    client = true;
+    splideInstance = new Splide(splideWrapper, {
+      gap: 100,
+      perPage: 1,
+      type: 'slider',
+      loop: true,
+      rewind: true,
+      arrows: false,
+      pagination: 'slider',
+    }).mount(LIGHT, Slide);
+
+    pagination.appendChild(splideInstance.Components.Pagination.data.list);
   });
 </script>
 
-<div class="slider container" class:client>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      {#each slides as slide}
-        <div class="swiper-slide">
-          <Slide {...slide} />
-        </div>
-      {/each}
+<div class="slider container">
+  <div class="splide" bind:this={splideWrapper}>
+    <div class="splide__track">
+      <div class="splide__list">
+        {#each slides as slide}
+          <div class="splide__slide">
+            <SliderSlide {...slide} />
+          </div>
+        {/each}
+      </div>
     </div>
   </div>
 
-  <div class="button prev">
+  <div class="button prev" on:click={prevSlide}>
     <Button>
       <Icon name="arrow" />
     </Button>
   </div>
-  <div class="button next">
+  <div class="button next" on:click={nextSlide}>
     <Button>
       <Icon name="arrow" />
     </Button>
@@ -96,7 +105,7 @@
 
   <div class="pagination">
     <div class="navigation">
-      <div class="pagination-bullets" />
+      <div class="pagination-bullets" bind:this={pagination} />
     </div>
   </div>
 </div>
@@ -106,24 +115,15 @@
     height: 100%;
     max-width: 709px;
     width: 100%;
-    overflow: hidden;
-    opacity: 0;
     transition: opacity ease 0.7s;
     position: relative;
     margin-top: 30px;
-    :global(.swiper-container) {
+    z-index: 20;
+    :global(.splide__track) {
       overflow: visible;
     }
-    :global(.swiper-slide-active .point) {
+    :global(.splide__slide.is-active .point) {
       transform: scale(1);
-      opacity: 1;
-    }
-    :global(.swiper-slide) {
-      width: auto !important;
-      max-width: 100%;
-    }
-    &.client {
-      overflow: visible;
       opacity: 1;
     }
     @media screen and (max-width: 1080px) {
@@ -185,8 +185,13 @@
     }
     &-bullets {
       margin: 0 36px;
-      :global(.swiper-pagination-bullet) {
+      :global(.splide__pagination) {
+        width: 100%;
+      }
+      :global(li) {
         margin-right: 24px;
+      }
+      :global(.splide__pagination__page) {
         background-color: #d8d8d8;
         width: 6px;
         height: 6px;
@@ -195,8 +200,11 @@
         opacity: 1;
         &:last-child {
           margin-right: 0;
+          padding: 0px;
+          border: none;
+          border-radius: 6px;
         }
-        &.swiper-pagination-bullet-active {
+        &.is-active {
           background-color: #ed4852;
           opacity: 1;
           transform: scale(2);

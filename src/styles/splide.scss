@@ -73,6 +73,7 @@
   position: relative;
   z-index: 0;
   overflow: hidden;
+  display: flex;
 }
 .splide--draggable > .splide__track > .splide__list > .splide__slide {
   -webkit-user-select: none;

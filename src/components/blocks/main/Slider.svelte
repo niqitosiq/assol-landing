@@ -7,8 +7,6 @@
   import { LIGHT } from '@splidejs/splide/src/js/components/index';
   import { Fade } from '@splidejs/splide/src/js/transitions/index';
 
-  let client = false;
-
   let slides = [
     {
       name: 'Кухня из древесного бруса',
@@ -117,6 +115,7 @@
   ];
 
   let pagination;
+  let splideWrapper;
   const slidesCount = slides.length;
 
   const getPointStyle = (x, y) => {
@@ -143,25 +142,24 @@
   };
 
   onMount(() => {
-    splideInstance = new Splide('.splide', {
+    splideInstance = new Splide(splideWrapper, {
       gap: 0,
       perPage: 1,
       type: 'fade',
       loop: true,
       arrows: false,
+      rewind: true,
       pagination: 'slider',
     }).mount(LIGHT, Fade);
 
     pagination.appendChild(splideInstance.Components.Pagination.data.list);
 
     splideInstance.on('moved', slideChanged);
-
-    client = true;
   });
 </script>
 
-<div class="slider" class:client>
-  <div class="splide">
+<div class="slider">
+  <div class="splide" bind:this={splideWrapper}>
     <div class="splide__track">
       <div class="splide__list">
         {#each slides as { img, points }}
@@ -214,7 +212,6 @@
     width: 100%;
     max-width: 613px;
     overflow: hidden;
-    opacity: 0;
     transition: opacity ease 0.3s;
     :global(.splide) {
       overflow: visible;
@@ -225,10 +222,6 @@
     }
     :global(.splide__slide) {
       width: 100% !important;
-    }
-    &.client {
-      overflow: visible;
-      opacity: 1;
     }
     @media screen and (max-width: 1080px) {
       margin-top: 80px;
