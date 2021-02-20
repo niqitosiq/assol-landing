@@ -52,7 +52,6 @@
     "rollup-plugin-terser": "^7.0.0",
     "sapper": "^0.28.0",
     "svelte": "^3.17.3",
-    "svelte-image": "^0.2.9",
-    "swiper": "^6.4.10"
+    "svelte-image": "^0.2.9"
   }
 }
