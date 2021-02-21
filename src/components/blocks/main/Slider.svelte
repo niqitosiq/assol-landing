@@ -367,11 +367,20 @@
     }
     &-bullets {
       margin: 0 36px;
+      @media screen and (max-width: 620px) {
+        margin: 0 20px;
+      }
       :global(.splide__pagination) {
         width: 100%;
       }
       :global(li) {
         margin-right: 24px;
+        @media screen and (max-width: 620px) {
+          margin-right: 12px;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
       }
       :global(.splide__pagination__page) {
         background-color: #d8d8d8;
@@ -403,12 +412,20 @@
       font-size: 22px;
       opacity: 0.4;
       line-height: 34px;
+      @media screen and (max-width: 380px) {
+        font-size: 20px;
+      }
     }
     &-name {
       font-size: 20px;
       line-height: 160%;
       color: #000000;
       margin-left: 20px;
+      @media screen and (max-width: 380px) {
+        font-size: 18px;
+        line-height: 180%;
+        margin-left: 10px;
+      }
     }
   }
 </style>

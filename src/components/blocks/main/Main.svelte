@@ -96,6 +96,15 @@
     line-height: 19px;
     color: #292929;
     opacity: 0.3;
+    @media screen and (max-width: 620px) {
+      opacity: 0.6;
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 17px;
+      br {
+        display: none;
+      }
+    }
   }
   .decor-1 {
     width: 160px;
@@ -115,6 +124,8 @@
     @media screen and (max-width: 680px) {
       width: 100px;
       z-index: -1;
+      right: -40px;
+      top: -40px;
     }
   }
   .decor-2 {
@@ -127,6 +138,14 @@
     @media screen and (max-width: 1660px) {
       right: auto;
       left: 0px;
+    }
+    @media screen and (max-width: 650px) {
+      left: -50px;
+      width: 160px;
+      z-index: -1;
+    }
+    @media screen and (max-width: 480px) {
+      bottom: -100px;
     }
   }
 </style>

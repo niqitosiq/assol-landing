@@ -71,6 +71,12 @@ b {
   margin: 0 auto;
   width: calc(100% - 20px);
   max-width: var(--container-width);
+  @media screen and (max-width: 620px) {
+    width: calc(100% - 50px);
+  }
+  @media screen and (max-width: 420px) {
+    width: calc(100% - 20px);
+  }
 }
 
 a,
@@ -105,11 +111,7 @@ h1 {
   color: var(--text-gray);
   margin: 0;
   @media screen and (max-width: 600px) {
-    font-size: 38px;
-    line-height: 48px;
-  }
-  @media screen and (max-width: 600px) {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 26px;
+    line-height: 110%;
   }
 }

@@ -32,6 +32,11 @@
       flex-direction: column;
       padding-right: 30px;
       padding-bottom: 80px;
+      margin-top: 30px;
+    }
+    @media screen and (max-width: 320px) {
+      padding: 10px 20px;
+      padding-bottom: 80px;
     }
   }
   .image {
