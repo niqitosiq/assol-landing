@@ -211,7 +211,6 @@
     height: 100%;
     width: 100%;
     max-width: 613px;
-    overflow: hidden;
     transition: opacity ease 0.3s;
     :global(.splide) {
       overflow: visible;
@@ -219,6 +218,9 @@
     :global(.splide__slide.is-active .point) {
       transform: scale(1);
       opacity: 1;
+    }
+    :global(.splide__track) {
+      overflow: visible;
     }
     :global(.splide__slide) {
       width: 100% !important;

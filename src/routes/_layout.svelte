@@ -4,10 +4,18 @@
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+  import { onMount } from 'svelte';
+
   gsap.registerPlugin(ScrollTrigger);
+
+  let loaded = false;
+
+  onMount(() => {
+    loaded = true;
+  });
 </script>
 
-<main class="main">
+<main class="main" class:loaded style="opacity: 0;">
   <Header />
   <div class="main-wrapper">
     <slot />
@@ -20,5 +28,11 @@
 
   body {
     overflow-x: hidden;
+  }
+  .main {
+    transition: opacity ease 0.3s;
+    &.loaded {
+      opacity: 1 !important;
+    }
   }
 </style>
