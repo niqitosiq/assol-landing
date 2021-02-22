@@ -6,6 +6,8 @@ let gsapAnimations = [];
 let mounted = false;
 
 const startAnimation = () => {
+  gsapAnimations.forEach(animation => animation());
+
   if (!mounted) return;
 
   const rect = document.body;
@@ -31,8 +33,6 @@ const startAnimation = () => {
 
     window.requestAnimationFrame(step);
   };
-
-  gsapAnimations.forEach(animation => animation());
 
   window.requestAnimationFrame(step);
 };

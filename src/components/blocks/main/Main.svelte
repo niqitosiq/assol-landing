@@ -123,6 +123,7 @@
     }
     @media screen and (max-width: 680px) {
       width: 100px;
+      height: 100px;
       z-index: -1;
       right: -40px;
       top: -40px;

@@ -98,21 +98,51 @@
   .d2 {
     position: absolute;
     pointer-events: none;
+    z-index: -1;
   }
   .d1 {
     width: 271px;
     left: -50px;
     top: 100px;
+    @media screen and (max-width: 840px) {
+      width: 200px;
+      top: 150px;
+    }
+    @media screen and (max-width: 720px) {
+      top: 250px;
+    }
+    @media screen and (max-width: 620px) {
+      top: 200px;
+      opacity: 0.6;
+    }
+    @media screen and (max-width: 368px) {
+      top: 250px;
+    }
   }
   .d2 {
     width: 213px;
     right: -50px;
     top: -100px;
+    @media screen and (max-width: 840px) {
+      width: 180px;
+      top: -150px;
+    }
+    @media screen and (max-width: 620px) {
+      top: auto;
+      bottom: 100px;
+      transform: rotate(-30deg);
+    }
   }
   .d3 {
     bottom: -30px;
     left: -50px;
     width: 174px;
     height: 163px;
+    z-index: -1;
+    @media screen and (max-width: 620px) {
+      width: 100px;
+      height: 90px;
+      bottom: 0px;
+    }
   }
 </style>

@@ -41,6 +41,9 @@
       margin-top: 5px;
       font-weight: 700;
       max-width: 730px;
+      @media screen and (max-width: 620px) {
+        font-size: 24px;
+      }
     }
     p {
       font-size: 16px;

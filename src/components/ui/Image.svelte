@@ -20,13 +20,20 @@
 </div>
 
 <style>
+  .wrapper {
+    width: 100%;
+    height: 100%;
+  }
   picture {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
   }
   img {
-    object-position: center;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 </style>

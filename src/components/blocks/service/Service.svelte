@@ -67,6 +67,7 @@
     position: relative;
     @media screen and (max-width: 620px) {
       margin-top: 50px;
+      margin-bottom: 50px;
     }
   }
   .services {
