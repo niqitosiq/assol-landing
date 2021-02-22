@@ -114,7 +114,6 @@
 <style lang="scss">
   .advantages {
     width: 100%;
-    overflow: hidden;
   }
   .container {
     display: flex;

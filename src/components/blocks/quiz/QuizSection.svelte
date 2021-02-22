@@ -189,15 +189,15 @@
       );
   };
 
-    initParallax(
-      [
-        {
-          selector: '#quiz .d1 .wrapper',
-          offset: 30,
-        },
-      ],
-      initAnimations,
-    );
+  initParallax(
+    [
+      {
+        selector: '#quiz .d1 .wrapper',
+        offset: 30,
+      },
+    ],
+    initAnimations,
+  );
 </script>
 
 <div id="quiz">
@@ -215,10 +215,13 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   #quiz {
     margin-top: 150px;
     position: relative;
+    @media screen and (max-width: 650px) {
+      margin-top: 50px;
+    }
   }
   .container {
     position: relative;
@@ -239,5 +242,10 @@
     width: 131px;
     left: 70px;
     top: -150px;
+    @media screen and (max-width: 650px) {
+      left: 0px;
+      top: -90px;
+      width: 80px;
+    }
   }
 </style>

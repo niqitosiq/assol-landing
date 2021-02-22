@@ -48,6 +48,9 @@
         background: url(/icons/progress.svg);
         background-repeat: repeat-x;
         background-size: contain;
+        @media screen and (max-width: 920px) {
+          background: url(/icons/progress-mobile.svg);
+        }
       }
     }
     .statistic {

@@ -52,7 +52,9 @@
               on:click={() => setAnswer(option)}
             >
               <h5>{option.label}</h5>
-              <Image src="/img/quiz/{option.img}.png" alt="" />
+              <div class="image">
+                <Image src="/img/quiz/{option.img}.png" alt="" />
+              </div>
             </div>
           {/each}
         </div>
@@ -79,6 +81,9 @@
     box-shadow: 0px 14px 74px rgba(0, 0, 0, 0.11);
     @media screen and (max-width: 760px) {
       flex-wrap: wrap;
+    }
+    @media screen and (max-width: 620px) {
+      margin-top: 20px;
     }
     &:after {
       content: '';
@@ -109,6 +114,7 @@
     @media screen and (max-width: 760px) {
       order: 1;
       max-width: 100%;
+      padding: 30px 20px;
     }
   }
 
@@ -130,6 +136,7 @@
     border-bottom-left-radius: 10px;
     padding-top: 80px;
     padding-left: 15px;
+    overflow: hidden;
     @media screen and (max-width: 1080px) {
       max-width: 250px;
     }
@@ -138,6 +145,12 @@
       max-width: 100%;
       border-top-left-radius: 0px;
       border-bottom-right-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 0px;
+      padding-top: 20px;
+      padding-bottom: 10px;
     }
     p {
       font-weight: normal;
@@ -147,7 +160,10 @@
       margin-bottom: 14px;
       @media screen and (max-width: 1080px) {
         font-size: 18px;
-        padding-right: 20px;
+        padding: 0px 20px;
+      }
+      @media screen and (max-width: 760px) {
+        text-align: center;
       }
     }
     h3 {
@@ -155,11 +171,20 @@
       font-size: 70px;
       line-height: 130%;
       color: #ffffff;
+      @media screen and (max-width: 760px) {
+        text-align: center;
+      }
     }
     &-image {
-      width: 234px;
+      width: 468px;
       margin-top: 50px;
-      margin-left: -13px;
+      margin-left: -220px;
+      @media screen and (max-width: 760px) {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        max-width: calc(100% - 40px);
+      }
     }
   }
 
@@ -214,8 +239,18 @@
     @media screen and (max-width: 920px) {
       width: calc(50% - 10.6px);
     }
+    @media screen and (max-width: 620px) {
+      margin-bottom: 10px;
+    }
     @media screen and (max-width: 500px) {
       width: 100%;
+      height: 80px;
+    }
+
+    .image {
+      :global(img) {
+        width: auto;
+      }
     }
   }
 
@@ -226,11 +261,15 @@
   }
 
   .next {
-    width: 247px;
+    width: 100%;
+    max-width: 247px;
     height: 60px;
     margin-top: 30px;
     :global(*) {
       text-transform: uppercase;
+    }
+    @media screen and (max-width: 760px) {
+      margin-top: 10px;
     }
   }
 </style>
