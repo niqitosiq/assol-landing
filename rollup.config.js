@@ -93,12 +93,14 @@ export default {
             [
               '@babel/preset-env',
               {
-                targets: '> 0.25%, not dead',
+                targets: '> 0.25%, not dead, ie11',
               },
             ],
           ],
           plugins: [
+            '@babel/plugin-proposal-object-rest-spread',
             '@babel/plugin-syntax-dynamic-import',
+            '@babel/plugin-transform-arrow-functions',
             [
               '@babel/plugin-transform-runtime',
               {
