@@ -39,6 +39,10 @@
   .top {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .logo {
     display: flex;

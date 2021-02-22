@@ -97,6 +97,9 @@
 <style lang="scss">
   #contacts {
     margin-top: 130px;
+    @media screen and (max-width: 620px) {
+      margin-top: 50px;
+    }
   }
 
   .container {
@@ -108,6 +111,9 @@
     overflow: hidden;
     margin-top: 50px;
     padding: 50px 0;
+    @media screen and (max-width: 620px) {
+      margin-top: 20px;
+    }
   }
 
   .map-wrapper {
@@ -185,6 +191,10 @@
     width: 137px;
     right: 70px;
     top: 0px;
-    z-index: 100;
+    z-index: 15;
+    @media screen and (max-width: 500px) {
+      top: -70px;
+      right: -40px;
+    }
   }
 </style>
