@@ -74,6 +74,7 @@
   body {
     overflow-x: hidden;
   }
+
   .main {
     transition: opacity ease 0.3s;
     &.loaded {
@@ -85,13 +86,12 @@
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 20;
     background-color: #fff;
     padding: 90px 20px 40px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
   }
 </style>

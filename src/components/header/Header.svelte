@@ -72,6 +72,9 @@
   .top {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 620px) {
+      width: calc(100% - 20px);
+    }
   }
 
   .social {
