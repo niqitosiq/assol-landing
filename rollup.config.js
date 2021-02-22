@@ -93,7 +93,7 @@ export default {
             [
               '@babel/preset-env',
               {
-                targets: '> 0.25%, not dead, ie11',
+                targets: '> 0.25%, not dead',
               },
             ],
           ],
