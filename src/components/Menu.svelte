@@ -1,32 +1,46 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
+
   let menu = [
     {
-      link: '/#',
+      link: '/#main',
       label: 'О компании',
     },
     {
-      link: '/#',
+      link: '/#service',
       label: 'Сервис',
     },
     {
-      link: '/#',
+      link: '/#services',
       label: 'Услуги',
     },
     {
-      link: '/#',
+      link: '/#advantages',
       label: 'Фотогалерея',
     },
     {
-      link: '/#',
+      link: '/#contacts',
       label: 'Контакты',
     },
   ];
+
+  const dispatch = createEventDispatcher();
+
+  const openLink = link => {
+    dispatch('scroll', link.split('/')[1]);
+  };
 </script>
 
 <ul class="menu">
   {#each menu as { link, label }}
     <li class="item">
-      <a href={link}>
+      <a
+        href={link}
+        on:click={e => {
+          e.preventDefault();
+          openLink(link);
+        }}
+      >
         <span>{label}</span>
       </a>
     </li>
@@ -42,6 +56,14 @@
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width: 720px) {
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
     &:after,
     &:before {
       content: '';
@@ -52,6 +74,10 @@
       left: 0;
       top: 0;
       z-index: 1;
+
+      @media screen and (max-width: 720px) {
+        display: none;
+      }
     }
     &:after {
       background-color: #f4f4f4;
@@ -73,6 +99,9 @@
     font-size: 16px;
     font-weight: 400;
     color: #333333;
+    @media screen and (max-width: 720px) {
+      margin-bottom: 10px;
+    }
     a {
       display: block;
       position: relative;
@@ -101,6 +130,12 @@
       span {
         position: relative;
         z-index: 2;
+      }
+      @media screen and (max-width: 720px) {
+        font-size: 24px;
+        text-align: left;
+        align-items: flex-start;
+        padding: 0;
       }
     }
   }

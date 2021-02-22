@@ -1,10 +1,19 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
+
   import Icon from '../ui/Icon.svelte';
   import Menu from '../Menu.svelte';
   import Burger from '../ui/Burger.svelte';
   import Image from '../ui/Image.svelte';
 
+  export let menuOpened = false;
+
   const phone = '8 (903) 375-86-02';
+
+  const dispatch = createEventDispatcher();
+  const openLink = link => {
+    dispatch('scroll', link);
+  };
 </script>
 
 <header>
@@ -51,11 +60,11 @@
     </a>
 
     <div class="burger">
-      <Burger />
+      <Burger bind:menuOpened />
     </div>
   </div>
   <div class="menu container">
-    <Menu />
+    <Menu on:scroll={openLink} />
   </div>
 </header>
 
@@ -74,6 +83,7 @@
   .logo {
     display: flex;
     align-items: center;
+    z-index: 25;
     :global(svg) {
       font-size: 94px;
       fill: var(--accent);
@@ -172,6 +182,7 @@
   .burger {
     display: none;
     align-items: center;
+    z-index: 25;
     @media screen and (max-width: 720px) {
       display: flex;
     }

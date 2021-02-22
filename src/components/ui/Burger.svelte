@@ -1,8 +1,8 @@
 <script>
   import Button from './Button.svelte';
+  export let menuOpened = false;
 
   let lines = 5;
-  let menuOpened = false;
 
   const toogleMenu = () => {
     menuOpened = !menuOpened;

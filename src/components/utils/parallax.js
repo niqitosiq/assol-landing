@@ -13,9 +13,13 @@ const startAnimation = () => {
   const rect = document.body;
   let mouse = [0, 0, false];
 
-  rect.addEventListener('mousemove', event => {
-    mouse = [event.x, event.y, true];
-  });
+  rect.addEventListener(
+    'mousemove',
+    event => {
+      mouse = [event.x, event.y, true];
+    },
+    { passive: true },
+  );
 
   const animate = (target, movement) => {
     gsap.to(target, {
