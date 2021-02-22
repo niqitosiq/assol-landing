@@ -2,6 +2,7 @@
   import Header from '../../ui/Header.svelte';
   import AdvantagesText from './AdvantagesText.svelte';
   import Image from '../../ui/Image.svelte';
+  import Service from '../../ui/Service.svelte';
 
   import { gsap } from 'gsap';
   import { initParallax } from '../../utils/parallax';
@@ -13,6 +14,24 @@
     description:
       'Мы уже X-лет на рынке. Используя этот опыт, мы оптимизируем смету и поможем вам сэкономить',
   };
+
+  const services = [
+    {
+      title: 'Упаковка',
+      description: 'Мы уже X-лет на рынке. Используя этот опыт',
+      img: '/img/service/1.jpg',
+    },
+    {
+      title: 'Упаковка',
+      description: 'Мы уже X-лет на рынке. Используя этот опыт',
+      img: '/img/service/2.jpg',
+    },
+    {
+      title: 'Упаковка',
+      description: 'Мы уже X-лет на рынке. Используя этот опыт',
+      img: '/img/service/3.jpg',
+    },
+  ];
 
   const initAnimations = () => {
     gsap
@@ -84,39 +103,9 @@
       </div>
 
       <div class="services">
-        <div class="service">
-          <div class="service-wrapper">
-            <div class="image">
-              <Image src="/img/service/2.jpg" />
-            </div>
-            <div class="description">
-              <h3>Упаковка</h3>
-              <p>Мы уже X-лет на рынке. Используя этот опыт</p>
-            </div>
-          </div>
-        </div>
-        <div class="service">
-          <div class="service-wrapper">
-            <div class="image">
-              <Image src="/img/service/2.jpg" />
-            </div>
-            <div class="description">
-              <h3>Упаковка</h3>
-              <p>Мы уже X-лет на рынке. Используя этот опыт</p>
-            </div>
-          </div>
-        </div>
-        <div class="service">
-          <div class="service-wrapper">
-            <div class="image">
-              <Image src="/img/service/2.jpg" />
-            </div>
-            <div class="description">
-              <h3>Упаковка</h3>
-              <p>Мы уже X-лет на рынке. Используя этот опыт</p>
-            </div>
-          </div>
-        </div>
+        {#each services as service}
+          <Service {...service} />
+        {/each}
       </div>
     </div>
   </div>
@@ -162,11 +151,21 @@
     width: 418px;
     left: 50px;
     transform: translateX(-100%);
+    @media screen and (max-width: 450px) {
+      left: 120px;
+      top: -210px;
+      width: 350px;
+    }
   }
   .d2 {
     width: 516px;
     right: 50px;
     transform: translateX(100%);
+    @media screen and (max-width: 450px) {
+      right: 60px;
+      top: -170px;
+      width: 400px;
+    }
   }
 
   .advantages-text-wrapper {
@@ -180,7 +179,10 @@
       top: -100px;
     }
     @media screen and (max-width: 620px) {
-      top: -114px;
+      top: -90px;
+    }
+    @media screen and (max-width: 350px) {
+      top: -100px;
     }
   }
 
@@ -199,84 +201,20 @@
       left: 0px;
       transform: translateX(0%);
     }
-  }
-
-  .service {
-    margin-top: -5px;
-    width: 368px;
-    height: 159px;
-    padding: 5px;
-    position: relative;
-    @media screen and (max-width: 920px) {
-      width: 100%;
-    }
-    &-wrapper {
-      height: 147px;
-      display: flex;
-      position: relative;
-      align-items: center;
-      z-index: 2;
-      transition: transform ease 0.3s;
+    :global(.service) {
+      margin-top: -5px;
+      width: 368px;
       @media screen and (max-width: 920px) {
-        height: 159px;
-      }
-      &:after {
-        content: '';
-        box-sizing: border-box;
-        position: absolute;
         width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        border: 1px solid #e3e3e3;
-        border-radius: 4px;
-        pointer-events: none;
+        max-width: 100%;
       }
     }
-    &:after,
-    &:before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: #fff;
-      border-radius: 5px;
-      border-radius: 5px;
-      z-index: 1;
+    :global(.title) {
+      font-size: 16px;
+      margin-bottom: 10px;
     }
-    &:after {
-      box-shadow: 0px 5.58354px 19.5424px rgba(0, 0, 0, 0.05);
-      left: 0;
-      top: 0;
-      transition: transform ease 0.3s;
-      transform: translateY(0px);
-    }
-    &:before {
-      box-shadow: 0px 3.08491px 79.705px rgba(0, 0, 0, 0.1);
-      top: 5px;
-      left: 5px;
-      width: calc(100% - 10px);
-      transition: transform ease 0.3s;
-      transform: translateY(0px);
-      transform-origin: center bottom;
-    }
-    &:hover {
-      &:after,
-      .service-wrapper {
-        transform: translateY(-5px);
-      }
-      &:before {
-        transform: translateY(-4px);
-      }
-    }
-    .image {
-      flex-shrink: 0;
-      width: 170px;
-      height: 100%;
-      margin-right: 26px;
-    }
-    .description {
-      padding-right: 20px;
+    :global(.text) {
+      font-size: 14px;
     }
   }
 </style>
