@@ -5,6 +5,7 @@
 
   import { gsap } from 'gsap';
   import { initParallax } from '../../utils/parallax';
+  import { viewClass } from '../../utils/viewport';
 
   const header = {
     name: 'Квиз-опрос',
@@ -200,7 +201,7 @@
   );
 </script>
 
-<div id="quiz">
+<div id="quiz" use:viewClass>
   <div class="cloud">
     <Image src="/img/background/cloud.png" alt="cloud-background" />
   </div>

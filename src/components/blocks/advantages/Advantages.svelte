@@ -6,6 +6,7 @@
 
   import { gsap } from 'gsap';
   import { initParallax } from '../../utils/parallax';
+  import { viewClass } from '../../utils/viewport';
 
   const header = {
     name: 'Услуги',
@@ -80,7 +81,7 @@
   );
 </script>
 
-<div class="advantages" id="advantages">
+<div class="advantages" id="advantages" use:viewClass>
   <div class="container">
     <Header {...header} />
 
