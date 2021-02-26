@@ -5,7 +5,7 @@ const observers = {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        intersectionObservers['class'].unobserve(entry.target);
+        //intersectionObservers['class'].unobserve(entry.target);
       }
     });
   },
@@ -41,7 +41,7 @@ function viewport(element, name = 'default', config = {}) {
 function viewClass(element) {
   element.classList.add('animate');
   viewport(element, 'class', {
-    rootMargin: '-100px 0px -150px 0px',
+    rootMargin: '-100px 0px -50% 0px',
   });
 }
 

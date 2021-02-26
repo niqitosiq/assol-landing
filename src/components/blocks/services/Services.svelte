@@ -4,6 +4,7 @@
   import Image from '../../ui/Image.svelte';
   import { gsap } from 'gsap';
   import { initParallax } from '../../utils/parallax';
+  import { viewClass } from '../../utils/viewport';
 
   const header = {
     name: 'Услуги',
@@ -68,7 +69,7 @@
   );
 </script>
 
-<div class="services" id="services">
+<div class="services" id="services" use:viewClass>
   <div class="container">
     <Header {...header} />
     <Slider />
