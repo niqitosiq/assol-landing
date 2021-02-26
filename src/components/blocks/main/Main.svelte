@@ -5,6 +5,7 @@
   import { gsap } from 'gsap';
   import { onMount } from 'svelte';
   import { initParallax } from '../../utils/parallax';
+  import { viewClass } from '../../utils/viewport';
 
   const initAnimations = () => {
     gsap
@@ -51,7 +52,7 @@
   });
 </script>
 
-<div id="main" class="main container">
+<div id="main" class="main container" use:viewClass>
   <div class="description">
     <h1>
       Создаем мебель <br />

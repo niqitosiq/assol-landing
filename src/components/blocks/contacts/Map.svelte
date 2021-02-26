@@ -1,5 +1,5 @@
 <script>
-  import viewport from '../../utils/viewport';
+  import { viewport } from '../../utils/viewport';
 
   export let locations = [
     {

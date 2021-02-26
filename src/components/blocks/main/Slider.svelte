@@ -116,6 +116,7 @@
 
   let pagination;
   let splideWrapper;
+  let changed = false;
   const slidesCount = slides.length;
 
   const getPointStyle = (x, y) => {
@@ -130,6 +131,7 @@
   $: activeSlide = slides[activeIndex];
 
   const slideChanged = () => {
+    changed = true;
     activeIndex = splideInstance.index || 0;
   };
 
@@ -158,7 +160,7 @@
   });
 </script>
 
-<div class="slider">
+<div class="slider" class:changed>
   <div class="splide" bind:this={splideWrapper}>
     <div class="splide__track">
       <div class="splide__list">
@@ -210,6 +212,7 @@
   .slider {
     height: 100%;
     width: 100%;
+    min-height: 613px;
     max-width: 613px;
     transition: opacity ease 0.3s;
     :global(.splide) {
@@ -227,6 +230,7 @@
     }
     @media screen and (max-width: 1080px) {
       margin-top: 80px;
+      min-height: auto;
     }
   }
   .slide {
