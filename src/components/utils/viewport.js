@@ -5,8 +5,7 @@ const observers = {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible');
+        intersectionObservers['class'].unobserve(entry.target);
       }
     });
   },
@@ -18,14 +17,17 @@ const observers = {
   },
 };
 
-function ensureIntersectionObserver(name) {
+function ensureIntersectionObserver(name, config) {
   if (intersectionObservers[name]) return;
 
-  intersectionObservers[name] = new IntersectionObserver(observers[name]);
+  intersectionObservers[name] = new IntersectionObserver(
+    observers[name],
+    config,
+  );
 }
 
-function viewport(element, name = 'default') {
-  ensureIntersectionObserver(name);
+function viewport(element, name = 'default', config = {}) {
+  ensureIntersectionObserver(name, config);
 
   intersectionObservers[name].observe(element);
 
@@ -38,7 +40,9 @@ function viewport(element, name = 'default') {
 
 function viewClass(element) {
   element.classList.add('animate');
-  viewport(element, 'class');
+  viewport(element, 'class', {
+    rootMargin: '-100px 0px -150px 0px',
+  });
 }
 
 export { viewport, viewClass };

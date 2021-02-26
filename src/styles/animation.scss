@@ -122,3 +122,51 @@
     }
   }
 }
+
+#service {
+  .header {
+    span {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity ease 0.7s 0.2s, transform ease 0.7s 0.2s;
+    }
+    h2 {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity ease 0.7s 0s, transform ease 0.7s 0s;
+    }
+  }
+
+  .service {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity ease 0.7s 0s, transform ease 0.7s 0s;
+    &:nth-child(1) {
+      transition-delay: 0.4s;
+    }
+    &:nth-child(2) {
+      transition-delay: 0.6s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.8s;
+    }
+  }
+
+  &.visible {
+    .header {
+      span {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      h2 {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .service {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

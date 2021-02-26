@@ -2,6 +2,7 @@
   import Header from '../../ui/Header.svelte';
   import Image from '../../ui/Image.svelte';
   import Service from '../../ui/Service.svelte';
+  import { viewClass } from '../../utils/viewport';
 
   const header = {
     name: 'СЕРВИС',
@@ -27,7 +28,7 @@
   ];
 </script>
 
-<div id="service">
+<div id="service" use:viewClass>
   <div class="cloud">
     <Image src="/img/background/cloud.png" />
   </div>
