@@ -6,6 +6,7 @@
 
   import { gsap } from 'gsap';
   import { initParallax } from '../../utils/parallax';
+  import { viewClass } from '../../utils/viewport';
 
   const header = {
     name: 'Контакты',
@@ -64,7 +65,7 @@
   );
 </script>
 
-<div id="contacts">
+<div id="contacts" use:viewClass>
   <Header {...header} />
 
   <div class="map">

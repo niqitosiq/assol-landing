@@ -73,7 +73,7 @@
   };
 </script>
 
-<div class="map-wrapper" class:loaded>
+<div class="map-wrapper" class:loaded >
   <div id="map" use:viewport on:enterViewport={initMap} />
 </div>
 
