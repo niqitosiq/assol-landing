@@ -19,6 +19,9 @@
       opacity: 0;
       transform: translate(calc(100% + 20px), -50%);
       transition: opacity ease 0.7s 0.8s, transform ease 0.7s 0.8s;
+      @media screen and (max-width: 1080px) {
+        transform: translate(50%, calc(-50% - 20px));
+      }
     }
   }
 
@@ -99,6 +102,9 @@
       .image {
         opacity: 1;
         transform: translate(100%, -50%);
+        @media screen and (max-width: 1080px) {
+          transform: translate(50%, -50%);
+        }
       }
     }
 
