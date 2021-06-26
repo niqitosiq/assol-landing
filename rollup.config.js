@@ -23,8 +23,8 @@ const preprocess = seqPreprocessor([
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
-const optimize = process.env.OPTIMIZE == 'true';
-const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const optimize = true;//process.env.OPTIMIZE == 'true';
+const legacy = true;//!!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) => {
   if (warning.message.includes('swiper')) return;

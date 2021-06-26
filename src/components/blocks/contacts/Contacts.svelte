@@ -17,20 +17,20 @@
     {
       icon: 'phone',
       title: 'Телефон:',
-      label: '8 (903) 375-86-02',
-      link: 'tel:8 (903) 375-86-02',
+      label: '+7 927 253 26 93',
+      link: 'tel:+7 927 253 26 93',
     },
     {
       icon: 'location',
       title: 'Адрес:',
-      label: 'г. Волгоград, Краснополянская 32',
-      link: 'tel:8 (903) 375-86-02',
+      label: 'г. Волгоград, ул. Вольная д.22',
+      link: 'https://goo.gl/maps/jfSqWw21QxdSk1NGA',
     },
     {
       icon: 'email',
       title: 'Почта:',
-      label: 'bivka@mail.ru',
-      link: 'tel:8 (903) 375-86-02',
+      label: 'assoll_2020@mail.ru',
+      link: 'mailto:assoll_2020@mail.ru',
     },
   ];
 
@@ -180,6 +180,9 @@
       line-height: 146.62%;
       color: #292929;
       display: block;
+      @media screen and (max-width: 400px) {
+        font-size: 16px;
+      }
     }
   }
 
